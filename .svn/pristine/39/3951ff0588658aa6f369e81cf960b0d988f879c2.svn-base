@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FReFileInfo" table="F_RE_FILE_INFO" >
+        <comment>F_RE&#213;&#247;&#208;&#197;&#206;&#196;&#188;&#254;&#208;&#197;&#207;&#162;&#177;&#237;</comment>
+        <id name="certno" type="string">
+            <column name="CERTNO" length="20" />
+            <generator class="assigned" />
+        </id>
+        <property name="fileName" type="string">
+            <column name="FILE_NAME" length="250">
+                <comment>FILE_NAME</comment>
+            </column>
+        </property>
+        <property name="reportNo" type="string">
+            <column name="REPORT_NO" length="50">
+                <comment>REPORT_NO</comment>
+            </column>
+        </property>
+        <property name="memo" type="string">
+            <column name="MEMO" length="200">
+                <comment>MEMO</comment>
+            </column>
+        </property>
+        <property name="stamp" type="serializable">
+            <column name="STAMP">
+                <comment>STAMP</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

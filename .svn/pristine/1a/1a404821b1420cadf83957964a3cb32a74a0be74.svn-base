@@ -1,0 +1,277 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping> 
+
+  <!-- 是否有效 -->
+  <typedef name="CommonStringStatus" class="com.skyon.jseds.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CommonStringStatus</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  
+  <!-- 境内外标志 -->
+  <typedef name="CnFlag" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CnFlag</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  
+  <!-- 是否通知标志 -->
+  <typedef name="CallDeposit" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CallDeposit</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+
+  <!-- 证件类型 -->
+  <typedef name="CustCertType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CustCertType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  
+  <!-- 补录类型 -->
+  <typedef name="BuluType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.BuluType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  
+  <typedef name="ErrorType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.ErrorType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="ErrorCode" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.ErrorCode</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="CertType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CertType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="AddressType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.AddressType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="PeopleRelationship" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.PeopleRelationship</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="Flag" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.Flag</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="UserTle" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.UserTle</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="UserType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.UserType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="SysAwokeParticularType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.SysAwokeParticularType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="BrowFlag" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.BrowFlag</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="StarLevel" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.StarLevel</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="CustCate" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CustCate</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="Sex" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.Sex</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="MaritalStatus" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.MaritalStatus</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="StudyExp" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.StudyExp</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="Degree" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.Degree</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="UnitKind" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.UnitKind</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="WorkType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.WorkType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="Duty" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.Duty</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="JobTitle" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.JobTitle</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="InhbtStat" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.InhbtStat</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="CustLev" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CustLev</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="EmployeeType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.EmployeeType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="CustType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CustType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+
+  
+  <typedef name="EnOfBkAg" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.EnOfBkAg</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="EnQly" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.EnQly</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="EnPtTl" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.EnPtTl</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="AuditingState" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.AuditingState</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="CustAllotStatus" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CustAllotStatus</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="CustApplyStatus" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CustApplyStatus</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="DevChkFlag" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.DevChkFlag</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="CustManStatus" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CustManStatus</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="GurantCate" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.GurantCate</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="GurantStat" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.GurantStat</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="CustApplyType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CustApplyType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="ReadState" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.ReadState</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  
+  <typedef name="AccountStatus" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.AccountStatus</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="CardAccountStatus" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CardAccountStatus</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="CardType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.CardType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="MoneyType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.MoneyType</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="PbocStatus" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.PbocStatus</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef>
+  <typedef name="QueryReason" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    <param name="enumClass">com.caafc.pbocAnalysis.enums.QueryReason</param>
+    <param name="identifierMethod">getValue</param>
+    <param name="valueOfMethod">getEnumByValue</param>
+  </typedef> 
+  
+  	<!-- 贷款品种 -->
+  	<typedef name="LoanVarieties" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    	<param name="enumClass">com.caafc.pbocAnalysis.enums.LoanVarieties</param>
+    	<param name="identifierMethod">getValue</param>
+    	<param name="valueOfMethod">getEnumByValue</param>
+  	</typedef> 
+  
+  	<!-- 评级职务职称 -->
+  	<typedef name="RatingPositionTitle" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    	<param name="enumClass">com.caafc.pbocAnalysis.enums.RatingPositionTitle</param>
+    	<param name="identifierMethod">getValue</param>
+    	<param name="valueOfMethod">getEnumByValue</param>
+  	</typedef> 
+  
+	<!-- 房屋类别 -->
+	<typedef name="HomeType" class="com.caafc.pbocAnalysis.util.GenericEnumUserType">
+    	<param name="enumClass">com.caafc.pbocAnalysis.enums.HomeType</param>
+    	<param name="identifierMethod">getValue</param>
+    	<param name="valueOfMethod">getEnumByValue</param>
+	</typedef>
+	
+	
+</hibernate-mapping>

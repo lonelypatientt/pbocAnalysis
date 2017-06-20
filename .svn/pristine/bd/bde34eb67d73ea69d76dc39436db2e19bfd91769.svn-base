@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlcurroverdue" table="F_RE_PLCURROVERDUE">
+        <comment>F_RE&#181;&#177;&#199;&#176;&#211;&#226;&#198;&#218;&#208;&#197;&#207;&#162;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlcurroverdueId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="uplevel" type="string">
+                <column name="UPLEVEL" length="20" />
+            </key-property>
+            <key-property name="idenNo" type="int">
+                <column name="IDEN_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="curroverduecyc" type="java.lang.Long">
+            <column name="CURROVERDUECYC" precision="10" scale="0">
+                <comment>&#181;&#177;&#199;&#176;&#211;&#226;&#198;&#218;&#198;&#218;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="curroverdueamount" type="big_decimal">
+            <column name="CURROVERDUEAMOUNT" precision="16">
+                <comment>&#181;&#177;&#199;&#176;&#211;&#226;&#198;&#218;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="overdue31to60amount" type="big_decimal">
+            <column name="OVERDUE31TO60AMOUNT" precision="16">
+                <comment>&#211;&#226;&#198;&#218;31-60&#204;&#236;&#206;&#180;&#185;&#233;&#187;&#185;&#180;&#251;&#191;&#238;&#177;&#190;&#189;&#240;</comment>
+            </column>
+        </property>
+        <property name="overdue61to90amount" type="big_decimal">
+            <column name="OVERDUE61TO90AMOUNT" precision="16">
+                <comment>&#211;&#226;&#198;&#218;61-90&#204;&#236;&#206;&#180;&#185;&#233;&#187;&#185;&#180;&#251;&#191;&#238;&#177;&#190;&#189;&#240;</comment>
+            </column>
+        </property>
+        <property name="overdue91to180amount" type="big_decimal">
+            <column name="OVERDUE91TO180AMOUNT" precision="16">
+                <comment>&#211;&#226;&#198;&#218;91-180&#204;&#236;&#206;&#180;&#185;&#233;&#187;&#185;&#180;&#251;&#191;&#238;&#177;&#190;&#189;&#240;</comment>
+            </column>
+        </property>
+        <property name="overdueover180amount" type="big_decimal">
+            <column name="OVERDUEOVER180AMOUNT" precision="16">
+                <comment>
+                &#211;&#226;&#198;&#218;180&#204;&#236;&#210;&#212;&#201;&#207;&#206;&#180;&#185;&#233;&#187;&#185;&#180;&#251;&#191;&#238;&#177;&#190;&#189;&#240;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

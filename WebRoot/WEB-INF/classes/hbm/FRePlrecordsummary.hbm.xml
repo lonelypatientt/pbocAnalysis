@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlrecordsummary" table="F_RE_PLRECORDSUMMARY">
+        <comment>F_RE&#178;&#233;&#209;&#175;&#188;&#199;&#194;&#188;&#187;&#227;&#215;&#220;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlrecordsummaryId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="queryreason" type="string">
+            <column name="QUERYREASON" length="50">
+                <comment>&#178;&#233;&#209;&#175;&#212;&#173;&#210;&#242;</comment>
+            </column>
+        </property>
+        <property name="sum" type="java.lang.Long">
+            <column name="SUM" precision="10" scale="0">
+                <comment>&#202;&#253;&#196;&#191;</comment>
+            </column>
+        </property>
+        <property name="recordNo" type="short">
+            <column name="RECORD_NO" precision="3" scale="0" not-null="true">
+                <comment>&#188;&#199;&#194;&#188;&#177;&#224;&#186;&#197;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

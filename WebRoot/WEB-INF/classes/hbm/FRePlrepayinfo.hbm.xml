@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlrepayinfo" table="F_RE_PLREPAYINFO">
+        <comment>F_RE&#202;&#185;&#211;&#195;&#187;&#185;&#191;&#238;&#199;&#233;&#191;&#246;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlrepayinfoId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="uplevel" type="string">
+                <column name="UPLEVEL" length="20" />
+            </key-property>
+            <key-property name="idenNo" type="int">
+                <column name="IDEN_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="stateenddate" type="string">
+            <column name="STATEENDDATE" length="10">
+                <comment>&#215;&#180;&#204;&#172;&#189;&#216;&#214;&#185;&#200;&#213;</comment>
+            </column>
+        </property>
+        <property name="stateendmonth" type="string">
+            <column name="STATEENDMONTH" length="7">
+                <comment>&#215;&#180;&#204;&#172;&#189;&#216;&#214;&#185;&#212;&#194;</comment>
+            </column>
+        </property>
+        <property name="sharecreditlimitamount" type="big_decimal">
+            <column name="SHARECREDITLIMITAMOUNT" precision="16">
+                <comment>&#185;&#178;&#207;&#237;&#182;&#238;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="usedcreditlimitamount" type="big_decimal">
+            <column name="USEDCREDITLIMITAMOUNT" precision="16">
+                <comment>&#210;&#209;&#211;&#195;&#182;&#238;&#182;&#200;/&#205;&#184;&#214;&#167;&#182;&#238;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="latest6monthusedavgamount" type="big_decimal">
+            <column name="LATEST6MONTHUSEDAVGAMOUNT" precision="16">
+                <comment>
+                &#215;&#238;&#189;&#252;6&#184;&#246;&#212;&#194;&#198;&#189;&#190;&#249;&#202;&#185;&#211;&#195;&#182;&#238;&#182;&#200;/&#215;&#238;&#189;&#252;6&#184;&#246;&#212;&#194;&#198;&#189;&#190;&#249;&#205;&#184;&#214;&#167;&#211;&#224;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="usedhighestamount" type="big_decimal">
+            <column name="USEDHIGHESTAMOUNT" precision="16">
+                <comment>
+                &#215;&#238;&#180;&#243;&#202;&#185;&#211;&#195;&#182;&#238;&#182;&#200;/&#215;&#238;&#180;&#243;&#205;&#184;&#214;&#167;&#211;&#224;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="scheduledpaymentdate" type="string">
+            <column name="SCHEDULEDPAYMENTDATE" length="10">
+                <comment>&#213;&#203;&#181;&#165;&#200;&#213;</comment>
+            </column>
+        </property>
+        <property name="scheduledpaymentamount" type="big_decimal">
+            <column name="SCHEDULEDPAYMENTAMOUNT" precision="16">
+                <comment>&#177;&#190;&#212;&#194;&#211;&#166;&#187;&#185;&#191;&#238;</comment>
+            </column>
+        </property>
+        <property name="actualpaymentamount" type="big_decimal">
+            <column name="ACTUALPAYMENTAMOUNT" precision="16">
+                <comment>&#177;&#190;&#212;&#194;&#202;&#181;&#187;&#185;&#191;&#238;</comment>
+            </column>
+        </property>
+        <property name="recentpaydate" type="string">
+            <column name="RECENTPAYDATE" length="10">
+                <comment>&#215;&#238;&#189;&#252;&#210;&#187;&#180;&#206;&#187;&#185;&#191;&#238;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="overdraft180dayunpaidbalance" type="big_decimal">
+            <column name="OVERDRAFT180DAYUNPAIDBALANCE" precision="16">
+                <comment>&#214;&#167;180&#204;&#236;&#210;&#212;&#201;&#207;&#206;&#180;&#184;&#182;&#211;&#224;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="state" type="string">
+            <column name="STATE" length="20">
+                <comment>&#213;&#203;&#187;&#167;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="curroverduecyc" type="java.lang.Long">
+            <column name="CURROVERDUECYC" precision="10" scale="0">
+                <comment>&#181;&#177;&#199;&#176;&#211;&#226;&#198;&#218;&#198;&#218;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="curroverdueamount" type="big_decimal">
+            <column name="CURROVERDUEAMOUNT" precision="16">
+                <comment>&#181;&#177;&#199;&#176;&#211;&#226;&#198;&#218;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

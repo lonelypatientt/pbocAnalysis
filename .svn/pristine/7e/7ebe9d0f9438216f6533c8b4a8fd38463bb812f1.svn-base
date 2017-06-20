@@ -1,0 +1,6 @@
+#HSQL Database Engine 2.1.0
+#Fri May 13 10:34:56 CST 2011
+version=1.8.0
+modified=yes
+server.database.0=lavender/lavender
+server.dbname.0=lavender

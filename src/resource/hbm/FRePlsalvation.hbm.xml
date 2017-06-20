@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlsalvation" table="F_RE_PLSALVATION">
+        <comment>F_RE&#181;&#205;&#177;&#163;&#190;&#200;&#214;&#250;&#188;&#199;&#194;&#188;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlsalvationId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="personneltype" type="string">
+            <column name="PERSONNELTYPE" length="100">
+                <comment>&#200;&#203;&#212;&#177;&#192;&#224;&#177;&#240;</comment>
+            </column>
+        </property>
+        <property name="area" type="string">
+            <column name="AREA" length="60">
+                <comment>&#203;&#249;&#212;&#218;&#181;&#216;</comment>
+            </column>
+        </property>
+        <property name="organname" type="string">
+            <column name="ORGANNAME" length="100">
+                <comment>&#185;&#164;&#215;&#247;&#181;&#165;&#206;&#187;</comment>
+            </column>
+        </property>
+        <property name="money" type="big_decimal">
+            <column name="MONEY" precision="16">
+                <comment>&#188;&#210;&#205;&#165;&#212;&#194;&#202;&#213;&#200;&#235;</comment>
+            </column>
+        </property>
+        <property name="registerdate" type="string">
+            <column name="REGISTERDATE" length="10">
+                <comment>&#201;&#234;&#199;&#235;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="passdate" type="string">
+            <column name="PASSDATE" length="10">
+                <comment>&#197;&#250;&#215;&#188;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="gettime" type="string">
+            <column name="GETTIME" length="10">
+                <comment>&#208;&#197;&#207;&#162;&#184;&#252;&#208;&#194;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

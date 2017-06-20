@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlspouse" table="F_RE_PLSPOUSE">
+        <comment>F_RE&#197;&#228;&#197;&#188;&#208;&#197;&#207;&#162;</comment>
+        <id name="reportNo" type="string">
+            <column name="REPORT_NO" length="24" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="30">
+                <comment>&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="certtype" type="string">
+            <column name="CERTTYPE" length="40">
+                <comment>&#214;&#164;&#188;&#254;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="certno" type="string">
+            <column name="CERTNO" length="30">
+                <comment>&#214;&#164;&#188;&#254;&#186;&#197;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="employer" type="string">
+            <column name="EMPLOYER" length="60">
+                <comment>&#185;&#164;&#215;&#247;&#181;&#165;&#206;&#187;</comment>
+            </column>
+        </property>
+        <property name="telephoneno" type="string">
+            <column name="TELEPHONENO" length="25">
+                <comment>&#193;&#170;&#207;&#181;&#181;&#231;&#187;&#176;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

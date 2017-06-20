@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlguaranteesummary" table="F_RE_PLGUARANTEESUMMARY">
+        <comment>F_RE&#182;&#212;&#205;&#226;&#181;&#163;&#177;&#163;&#208;&#197;&#207;&#162;&#187;&#227;&#215;&#220;</comment>
+        <id name="reportNo" type="string">
+            <column name="REPORT_NO" length="24" />
+            <generator class="assigned" />
+        </id>
+        <property name="count" type="java.lang.Long">
+            <column name="COUNT" precision="10" scale="0">
+                <comment>&#181;&#163;&#177;&#163;&#177;&#202;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="amount" type="big_decimal">
+            <column name="AMOUNT" precision="16">
+                <comment>&#181;&#163;&#177;&#163;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="balance" type="big_decimal">
+            <column name="BALANCE" precision="16">
+                <comment>&#181;&#163;&#177;&#163;&#177;&#190;&#189;&#240;&#211;&#224;&#182;&#238;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

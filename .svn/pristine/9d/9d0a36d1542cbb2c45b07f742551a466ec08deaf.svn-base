@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlforceexecution" table="F_RE_PLFORCEEXECUTION">
+        <comment>F_RE&#199;&#191;&#214;&#198;&#214;&#180;&#208;&#208;&#188;&#199;&#194;&#188;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlforceexecutionId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="court" type="string">
+            <column name="COURT" length="80">
+                <comment>&#214;&#180;&#208;&#208;&#183;&#168;&#212;&#186;</comment>
+            </column>
+        </property>
+        <property name="casereason" type="string">
+            <column name="CASEREASON" length="40">
+                <comment>&#214;&#180;&#208;&#208;&#176;&#184;&#211;&#201;</comment>
+            </column>
+        </property>
+        <property name="registerdate" type="string">
+            <column name="REGISTERDATE" length="10">
+                <comment>&#193;&#162;&#176;&#184;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="closedtype" type="string">
+            <column name="CLOSEDTYPE" length="20">
+                <comment>&#189;&#225;&#176;&#184;&#183;&#189;&#202;&#189;</comment>
+            </column>
+        </property>
+        <property name="casestate" type="string">
+            <column name="CASESTATE" length="20">
+                <comment>&#176;&#184;&#188;&#254;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="closeddate" type="string">
+            <column name="CLOSEDDATE" length="20">
+                <comment>&#189;&#225;&#176;&#184;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="enforceobject" type="string">
+            <column name="ENFORCEOBJECT" length="200">
+                <comment>&#201;&#234;&#199;&#235;&#214;&#180;&#208;&#208;&#177;&#234;&#181;&#196;</comment>
+            </column>
+        </property>
+        <property name="enforceobjectmoney" type="big_decimal">
+            <column name="ENFORCEOBJECTMONEY" precision="16">
+                <comment>&#201;&#234;&#199;&#235;&#214;&#180;&#208;&#208;&#177;&#234;&#181;&#196;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="alreadyenforceobject" type="string">
+            <column name="ALREADYENFORCEOBJECT" length="200">
+                <comment>&#210;&#209;&#214;&#180;&#208;&#208;&#177;&#234;&#181;&#196;</comment>
+            </column>
+        </property>
+        <property name="alreadyenforceobjectmoney" type="big_decimal">
+            <column name="ALREADYENFORCEOBJECTMONEY" precision="16">
+                <comment>&#210;&#209;&#214;&#180;&#208;&#208;&#177;&#234;&#181;&#196;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

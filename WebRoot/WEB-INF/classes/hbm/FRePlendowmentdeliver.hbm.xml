@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlendowmentdeliver" table="F_RE_PLENDOWMENTDELIVER">
+        <comment>F_RE&#209;&#248;&#192;&#207;&#177;&#163;&#207;&#213;&#189;&#240;&#183;&#162;&#183;&#197;&#188;&#199;&#194;&#188;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlendowmentdeliverId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="area" type="string">
+            <column name="AREA" length="60">
+                <comment>&#183;&#162;&#183;&#197;&#181;&#216;</comment>
+            </column>
+        </property>
+        <property name="retiretype" type="string">
+            <column name="RETIRETYPE" length="100">
+                <comment>&#192;&#235;&#205;&#203;&#208;&#221;&#192;&#224;&#177;&#240;</comment>
+            </column>
+        </property>
+        <property name="retireddate" type="string">
+            <column name="RETIREDDATE" length="7">
+                <comment>&#192;&#235;&#205;&#203;&#208;&#221;&#212;&#194;&#183;&#221;</comment>
+            </column>
+        </property>
+        <property name="workdate" type="string">
+            <column name="WORKDATE" length="7">
+                <comment>&#178;&#206;&#188;&#211;&#185;&#164;&#215;&#247;&#212;&#194;&#183;&#221;</comment>
+            </column>
+        </property>
+        <property name="money" type="big_decimal">
+            <column name="MONEY" precision="16">
+                <comment>&#177;&#190;&#212;&#194;&#202;&#181;&#183;&#162;&#209;&#248;&#192;&#207;&#189;&#240;</comment>
+            </column>
+        </property>
+        <property name="pausereason" type="string">
+            <column name="PAUSEREASON" length="60">
+                <comment>&#205;&#163;&#183;&#162;&#212;&#173;&#210;&#242;</comment>
+            </column>
+        </property>
+        <property name="organname" type="string">
+            <column name="ORGANNAME" length="100">
+                <comment>&#212;&#173;&#181;&#165;&#206;&#187;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="gettime" type="string">
+            <column name="GETTIME" length="10">
+                <comment>&#208;&#197;&#207;&#162;&#184;&#252;&#208;&#194;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FReFicoSendMsg" table="F_RE_FICO_SEND_MSG" >
+        <comment>fico&#177;&#168;&#206;&#196;&#177;&#237;</comment>
+        <id name="appCode" type="string">
+            <column name="APP_CODE" length="16" />
+            <generator class="assigned" />
+        </id>
+        <property name="idType" type="string">
+            <column name="ID_TYPE" length="2">
+                <comment>&#214;&#164;&#188;&#254;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="idNum" type="string">
+            <column name="ID_NUM" length="30">
+                <comment>&#214;&#164;&#188;&#254;&#186;&#197;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="50">
+                <comment>&#208;&#213;&#195;&#251;</comment>
+            </column>
+        </property>
+        <property name="reportNo" type="string">
+            <column name="REPORT_NO" length="24">
+                <comment>&#177;&#168;&#184;&#230;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="creditContent" type="clob">
+            <column name="CREDIT_CONTENT">
+                <comment>&#213;&#247;&#208;&#197;&#177;&#168;&#206;&#196;&#196;&#218;&#200;&#221;</comment>
+            </column>
+        </property>
+        <property name="creditTime" type="serializable">
+            <column name="CREDIT_TIME">
+                <comment>&#213;&#247;&#208;&#197;&#177;&#168;&#206;&#196;&#180;&#230;&#200;&#235;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="status" type="string">
+            <column name="STATUS" length="2">
+                <comment>&#215;&#180;&#204;&#172; 0-&#178;&#187;&#213;&#253;&#179;&#163; 1-&#213;&#253;&#179;&#163;</comment>
+            </column>
+        </property>
+        <property name="updateTime" type="serializable">
+            <column name="UPDATE_TIME">
+                <comment>&#184;&#252;&#208;&#194;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="remark1" type="string">
+            <column name="REMARK1" length="50">
+                <comment>&#212;&#164;&#193;&#244;&#215;&#214;&#182;&#206;1</comment>
+            </column>
+        </property>
+        <property name="remark2" type="string">
+            <column name="REMARK2" length="50">
+                <comment>&#212;&#164;&#193;&#244;&#215;&#214;&#182;&#206;2</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

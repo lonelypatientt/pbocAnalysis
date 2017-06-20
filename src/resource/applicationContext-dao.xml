@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:aop="http://www.springframework.org/schema/aop" 
+		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+		http://www.springframework.org/schema/jee 
+		http://www.springframework.org/schema/jee/spring-jee-2.5.xsd">
+
+  <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+    <property name="mappingLocations">
+      <list>
+        <value>classpath:/hbm/enums/Enums.hbm.xml</value>
+        <value>classpath:/hbm/*.hbm.xml</value>
+      </list>
+    </property>
+    <property name="hibernateProperties">
+      <props>
+        <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+        <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+        <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+        <prop key="hibernate.cache.use_query_cache">true</prop>
+        <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider
+                </prop>
+        <prop key="hibernate.format_sql">true</prop>
+        <prop key="hibernate.default_batch_fetch_size">16</prop>
+        <prop key="hibernate.max_fetch_depth">1</prop>
+        <prop key="hibernate.jdbc.batch_size">20</prop>
+        <!--
+          Next line cause some version of WebLogic can't use ASTQueryTranslationFactory <prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+        -->
+      </props>
+    </property>
+  </bean>
+
+	<!-- expert库连接信息 -->
+	<!-- <bean id="sessionFactoryExpert" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    	<property name="dataSource" ref="dataSourceExpert" />
+    	<property name="hibernateProperties">
+	      	<props>
+		        <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+		        <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+		        <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+		        <prop key="hibernate.cache.use_query_cache">true</prop>
+		        <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider
+		                </prop>
+		        <prop key="hibernate.format_sql">true</prop>
+		        <prop key="hibernate.default_batch_fetch_size">16</prop>
+		        <prop key="hibernate.max_fetch_depth">1</prop>
+		        <prop key="hibernate.jdbc.batch_size">20</prop>
+		        
+		          Next line cause some version of WebLogic can't use ASTQueryTranslationFactory <prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+		       
+	      	</props>
+    	</property>
+  	</bean> -->
+  <!-- Add new DAOs here -->  
+  
+ 	<bean id="daoTemplate" abstract="true">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+  	
+  	<!-- 房贷审批 -->
+  	<!--<bean id="houseLoanDao" class="com.caafc.pbocAnalysis.dao.impl.HouseLoanDAOImpl" parent="daoTemplate" >
+  		<property name="sessionFactory" ref="sessionFactory"/>
+  	</bean>
+--></beans>

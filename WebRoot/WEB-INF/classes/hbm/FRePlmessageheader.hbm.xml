@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlmessageheader" table="F_RE_PLMESSAGEHEADER">
+        <comment>F_RE&#177;&#168;&#184;&#230;&#205;&#183;&#195;&#232;&#202;&#246;</comment>
+        <id name="reportsn" type="string">
+            <column name="REPORTSN" length="24" />
+            <generator class="assigned" />
+        </id>
+        <property name="querytime" type="string">
+            <column name="QUERYTIME" length="19">
+                <comment>&#178;&#233;&#209;&#175;&#199;&#235;&#199;&#243;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="reportcreatetime" type="string">
+            <column name="REPORTCREATETIME" length="19">
+                <comment>&#177;&#168;&#184;&#230;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

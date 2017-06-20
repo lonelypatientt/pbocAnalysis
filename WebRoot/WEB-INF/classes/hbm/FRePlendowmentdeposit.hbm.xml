@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlendowmentdeposit" table="F_RE_PLENDOWMENTDEPOSIT">
+        <comment>F_RE&#209;&#248;&#192;&#207;&#177;&#163;&#207;&#213;&#189;&#240;&#189;&#201;&#180;&#230;&#188;&#199;&#194;&#188;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlendowmentdepositId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="area" type="string">
+            <column name="AREA" length="60">
+                <comment>&#178;&#206;&#177;&#163;&#181;&#216;</comment>
+            </column>
+        </property>
+        <property name="registerdate" type="string">
+            <column name="REGISTERDATE" length="10">
+                <comment>&#178;&#206;&#177;&#163;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="monthduration" type="java.lang.Short">
+            <column name="MONTHDURATION" precision="4" scale="0">
+                <comment>&#192;&#219;&#188;&#198;&#189;&#201;&#183;&#209;&#212;&#194;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="workdate" type="string">
+            <column name="WORKDATE" length="7">
+                <comment>&#178;&#206;&#188;&#211;&#185;&#164;&#215;&#247;&#212;&#194;&#183;&#221;</comment>
+            </column>
+        </property>
+        <property name="state" type="string">
+            <column name="STATE" length="100">
+                <comment>&#189;&#201;&#183;&#209;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="ownbasicmoney" type="big_decimal">
+            <column name="OWNBASICMONEY" precision="16">
+                <comment>&#184;&#246;&#200;&#203;&#189;&#201;&#183;&#209;&#187;&#249;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="money" type="big_decimal">
+            <column name="MONEY" precision="16">
+                <comment>&#177;&#190;&#212;&#194;&#189;&#201;&#183;&#209;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="organname" type="string">
+            <column name="ORGANNAME" length="100">
+                <comment>&#189;&#201;&#183;&#209;&#181;&#165;&#206;&#187;</comment>
+            </column>
+        </property>
+        <property name="pausereason" type="string">
+            <column name="PAUSEREASON" length="100">
+                <comment>&#214;&#208;&#182;&#207;&#187;&#242;&#214;&#213;&#214;&#185;&#189;&#201;&#183;&#209;&#212;&#173;&#210;&#242;</comment>
+            </column>
+        </property>
+        <property name="gettime" type="string">
+            <column name="GETTIME" length="10">
+                <comment>&#208;&#197;&#207;&#162;&#184;&#252;&#208;&#194;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

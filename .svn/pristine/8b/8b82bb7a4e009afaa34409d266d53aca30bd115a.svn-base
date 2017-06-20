@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlvehicle" table="F_RE_PLVEHICLE">
+        <comment>F_RE&#179;&#181;&#193;&#190;&#189;&#187;&#210;&#215;&#186;&#205;&#181;&#214;&#209;&#186;&#188;&#199;&#194;&#188;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlvehicleId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="enginecode" type="string">
+            <column name="ENGINECODE" length="40">
+                <comment>&#183;&#162;&#182;&#175;&#187;&#250;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="licensecode" type="string">
+            <column name="LICENSECODE" length="15">
+                <comment>&#179;&#181;&#197;&#198;&#186;&#197;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="brand" type="string">
+            <column name="BRAND" length="40">
+                <comment>&#198;&#183;&#197;&#198;</comment>
+            </column>
+        </property>
+        <property name="cartype" type="string">
+            <column name="CARTYPE" length="40">
+                <comment>&#179;&#181;&#193;&#190;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="usecharacter" type="string">
+            <column name="USECHARACTER" length="40">
+                <comment>&#202;&#185;&#211;&#195;&#208;&#212;&#214;&#202;</comment>
+            </column>
+        </property>
+        <property name="state" type="string">
+            <column name="STATE" length="40">
+                <comment>&#179;&#181;&#193;&#190;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="pledgeflag" type="string">
+            <column name="PLEDGEFLAG" length="10">
+                <comment>&#181;&#214;&#209;&#186;&#177;&#234;&#188;&#199;</comment>
+            </column>
+        </property>
+        <property name="gettime" type="string">
+            <column name="GETTIME" length="10">
+                <comment>&#208;&#197;&#207;&#162;&#184;&#252;&#208;&#194;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

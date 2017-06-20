@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlassetdispositionsum" table="F_RE_PLASSETDISPOSITIONSUM" >
+        <comment>F_RE&#215;&#202;&#178;&#250;&#180;&#166;&#214;&#195;&#208;&#197;&#207;&#162;&#187;&#227;&#215;&#220;</comment>
+        <id name="reportNo" type="string">
+            <column name="REPORT_NO" length="24" />
+            <generator class="assigned" />
+        </id>
+        <property name="count" type="java.lang.Long">
+            <column name="COUNT" precision="10" scale="0">
+                <comment>&#177;&#202;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="balance" type="big_decimal">
+            <column name="BALANCE" precision="16">
+                <comment>&#211;&#224;&#182;&#238;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

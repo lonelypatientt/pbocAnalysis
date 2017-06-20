@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlcreditcardguarantee" table="F_RE_PLCREDITCARDGUARANTEE">
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlcreditcardguaranteeId">
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+        </composite-id>
+        <property name="organname" type="string">
+            <column name="ORGANNAME" length="100">
+                <comment>&#181;&#163;&#177;&#163;&#208;&#197;&#211;&#195;&#191;&#168;&#183;&#162;&#183;&#197;&#187;&#250;&#185;&#185;</comment>
+            </column>
+        </property>
+        <property name="creditamount" type="big_decimal">
+            <column name="CREDITAMOUNT" precision="16">
+                <comment>&#181;&#163;&#177;&#163;&#208;&#197;&#211;&#195;&#191;&#168;&#202;&#218;&#208;&#197;&#182;&#238;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="opendate" type="string">
+            <column name="OPENDATE" length="10">
+                <comment>&#181;&#163;&#177;&#163;&#208;&#197;&#211;&#195;&#191;&#168;&#183;&#162;&#191;&#168;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="guananteemoney" type="big_decimal">
+            <column name="GUANANTEEMONEY" precision="16">
+                <comment>&#181;&#163;&#177;&#163;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="usedcreditlimitamount" type="big_decimal">
+            <column name="USEDCREDITLIMITAMOUNT" precision="16">
+                <comment>&#181;&#163;&#177;&#163;&#208;&#197;&#211;&#195;&#191;&#168;&#210;&#209;&#211;&#195;&#182;&#238;&#182;&#200;</comment>
+            </column>
+        </property>
+        <property name="scheduledpaymentdate" type="string">
+            <column name="SCHEDULEDPAYMENTDATE" length="10">
+                <comment>&#213;&#203;&#181;&#165;&#200;&#213;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

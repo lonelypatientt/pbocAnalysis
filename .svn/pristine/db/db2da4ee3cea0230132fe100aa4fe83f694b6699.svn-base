@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlcompetence" table="F_RE_PLCOMPETENCE">
+        <comment>F_RE&#214;&#180;&#210;&#181;&#215;&#202;&#184;&#241;&#188;&#199;&#194;&#188;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlcompetenceId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="competencyname" type="string">
+            <column name="COMPETENCYNAME" length="60">
+                <comment>&#214;&#180;&#210;&#181;&#215;&#202;&#184;&#241;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="grade" type="string">
+            <column name="GRADE" length="100">
+                <comment>&#181;&#200;&#188;&#182;</comment>
+            </column>
+        </property>
+        <property name="awarddate" type="string">
+            <column name="AWARDDATE" length="10">
+                <comment>&#187;&#241;&#181;&#195;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="enddate" type="string">
+            <column name="ENDDATE" length="10">
+                <comment>&#181;&#189;&#198;&#218;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="revokedate" type="string">
+            <column name="REVOKEDATE" length="10">
+                <comment>&#181;&#245;&#207;&#250;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="organname" type="string">
+            <column name="ORGANNAME" length="60">
+                <comment>&#176;&#228;&#183;&#162;&#187;&#250;&#185;&#185;</comment>
+            </column>
+        </property>
+        <property name="area" type="string">
+            <column name="AREA" length="60">
+                <comment>&#187;&#250;&#185;&#185;&#203;&#249;&#212;&#218;&#181;&#216;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

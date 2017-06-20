@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="GB2312"?>
+<context>
+	<context name="jdbc">
+		<!-- pooled data source -->
+		<!-- regular data source with c3p0 connection pool -->
+
+		
+		<!-- oracle 数据库  开发环境-->
+		<reference name="oracleSource" className="javax.sql.DataSource"
+			factoryClassName="com.caafc.pbocAnalysis.dao.jdbc.SimpleDataSourceFactory">
+			<refAddr name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+			<refAddr name="url" value="jdbc:oracle:thin:@10.1.1.12:1521:JSDB1" />
+			<refAddr name="user" value="dwinst" />
+			<refAddr name="password" value="dwinst" />
+			<refAddr name="maxActive" value="3" />
+			<refAddr name="minIdle" value="2" />
+			<refAddr name="maxWait" value="3" />
+		</reference>
+		
+		
+		<!-- oracle 数据库  生产环境-->
+		<!--<reference name="oracleSource" className="javax.sql.DataSource"
+			factoryClassName="cn.batch.daemon.jdbc.SimpleDataSourceFactory">
+			<refAddr name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+			<refAddr name="url" value="jdbc:oracle:thin:@132.172.1.20:1521:EDSDA" />
+			<refAddr name="user" value="edsda" />
+			<refAddr name="password" value="edsda" />
+			<refAddr name="maxActive" value="3" />
+			<refAddr name="minIdle" value="2" />
+			<refAddr name="maxWait" value="3" />
+		</reference>
+		-->
+
+	</context>
+</context>

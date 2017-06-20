@@ -1,0 +1,6 @@
+#\u5f81\u4fe1\u89e3\u6790\u63a5\u53e3
+#pboc.url=http://10.1.2.122:19821/parse/
+pboc.url=http://10.5.2.17:19821/parse/
+#\u89e3\u6790\u540e\u4eba\u884c\u5f81\u4fe1html\u6587\u4ef6\u4fdd\u5b58\u8def\u5f84
+htmlPath=/home/dwinst/save
+#htmlPath=/fj-disk/credit_report

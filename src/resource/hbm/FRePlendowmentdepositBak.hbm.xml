@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlendowmentdepositBak" table="F_RE_PLENDOWMENTDEPOSIT_BAK">
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlendowmentdepositBakId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="area" type="string">
+                <column name="AREA" length="60" />
+            </key-property>
+            <key-property name="registerdate" type="string">
+                <column name="REGISTERDATE" length="10" />
+            </key-property>
+            <key-property name="monthduration" type="java.lang.Short">
+                <column name="MONTHDURATION" precision="4" scale="0" />
+            </key-property>
+            <key-property name="workdate" type="string">
+                <column name="WORKDATE" length="7" />
+            </key-property>
+            <key-property name="state" type="string">
+                <column name="STATE" length="100" />
+            </key-property>
+            <key-property name="ownbasicmoney" type="big_decimal">
+                <column name="OWNBASICMONEY" precision="16" />
+            </key-property>
+            <key-property name="money" type="big_decimal">
+                <column name="MONEY" precision="16" />
+            </key-property>
+            <key-property name="organname" type="string">
+                <column name="ORGANNAME" length="100" />
+            </key-property>
+            <key-property name="pausereason" type="string">
+                <column name="PAUSEREASON" length="100" />
+            </key-property>
+            <key-property name="gettime" type="string">
+                <column name="GETTIME" length="10" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

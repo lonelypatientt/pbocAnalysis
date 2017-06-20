@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePltelpayment" table="F_RE_PLTELPAYMENT">
+        <comment>F_RE&#181;&#231;&#208;&#197;&#189;&#201;&#183;&#209;&#188;&#199;&#194;&#188;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePltelpaymentId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="organname" type="string">
+            <column name="ORGANNAME" length="100">
+                <comment>&#181;&#231;&#208;&#197;&#212;&#203;&#211;&#170;&#201;&#204;</comment>
+            </column>
+        </property>
+        <property name="type" type="string">
+            <column name="TYPE" length="150">
+                <comment>&#210;&#181;&#206;&#241;&#192;&#224;&#208;&#205;</comment>
+            </column>
+        </property>
+        <property name="registerdate" type="string">
+            <column name="REGISTERDATE" length="10">
+                <comment>&#210;&#181;&#206;&#241;&#191;&#170;&#205;&#168;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="state" type="string">
+            <column name="STATE" length="50">
+                <comment>&#181;&#177;&#199;&#176;&#189;&#201;&#183;&#209;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="arrearmoney" type="big_decimal">
+            <column name="ARREARMONEY" precision="16">
+                <comment>&#181;&#177;&#199;&#176;&#199;&#183;&#183;&#209;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="arrearmonths" type="string">
+            <column name="ARREARMONTHS" length="100">
+                <comment>&#181;&#177;&#199;&#176;&#199;&#183;&#183;&#209;&#212;&#194;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="status24" type="string">
+            <column name="STATUS24" length="24">
+                <comment>&#215;&#238;&#189;&#252;24&#184;&#246;&#212;&#194;&#189;&#201;&#183;&#209;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="gettime" type="string">
+            <column name="GETTIME" length="10">
+                <comment>&#188;&#199;&#213;&#202;&#196;&#234;&#212;&#194;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlidentity" table="F_RE_PLIDENTITY">
+        <comment>F_RE&#201;&#237;&#183;&#221;&#208;&#197;&#207;&#162;</comment>
+        <id name="reportNo" type="string">
+            <column name="REPORT_NO" length="24" />
+            <generator class="assigned" />
+        </id>
+        <property name="gender" type="string">
+            <column name="GENDER" length="20">
+                <comment>&#208;&#212;&#177;&#240;1 &#196;&#208;&#208;&#212; 2 &#197;&#174;&#208;&#212; 9 &#206;&#180;&#214;&#170;</comment>
+            </column>
+        </property>
+        <property name="birthday" type="string">
+            <column name="BIRTHDAY" length="10">
+                <comment>&#179;&#246;&#201;&#250;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="edulevel" type="string">
+            <column name="EDULEVEL" length="65">
+                <comment>&#209;&#167;&#192;&#250;</comment>
+            </column>
+        </property>
+        <property name="edudegree" type="string">
+            <column name="EDUDEGREE" length="20">
+                <comment>&#209;&#167;&#206;&#187;1 &#195;&#251;&#211;&#254;&#178;&#169;&#202;&#191; 2 &#178;&#169;&#202;&#191; 3 &#203;&#182;&#202;&#191; 4
+                &#209;&#167;&#202;&#191; 5 &#198;&#228;&#203;&#251; 9 &#206;&#180;&#214;&#170;</comment>
+            </column>
+        </property>
+        <property name="postaddress" type="string">
+            <column name="POSTADDRESS" length="100">
+                <comment>&#205;&#168;&#209;&#182;&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="registeredaddress" type="string">
+            <column name="REGISTEREDADDRESS" length="100">
+                <comment>&#187;&#167;&#188;&#174;&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="hometelephoneno" type="string">
+            <column name="HOMETELEPHONENO" length="25">
+                <comment>&#215;&#161;&#213;&#172;&#181;&#231;&#187;&#176;</comment>
+            </column>
+        </property>
+        <property name="officetelephoneno" type="string">
+            <column name="OFFICETELEPHONENO" length="25">
+                <comment>&#181;&#165;&#206;&#187;&#181;&#231;&#187;&#176;</comment>
+            </column>
+        </property>
+        <property name="mobile" type="string">
+            <column name="MOBILE" length="25">
+                <comment>&#202;&#214;&#187;&#250;&#186;&#197;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="maritalstate" type="string">
+            <column name="MARITALSTATE" length="45">
+                <comment>&#187;&#233;&#210;&#246;&#215;&#180;&#191;&#246;1 &#206;&#180;&#187;&#233; 2 &#210;&#209;&#187;&#233; 3 &#201;&#165;&#197;&#188; 4
+                &#192;&#235;&#187;&#233; 9 &#206;&#180;&#214;&#170;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

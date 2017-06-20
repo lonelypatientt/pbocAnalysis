@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlstandardloancardsum" table="F_RE_PLSTANDARDLOANCARDSUM">
+        <comment>F_RE&#215;&#188;&#180;&#251;&#188;&#199;&#191;&#168;60&#204;&#236;&#210;&#212;&#201;&#207;&#205;&#184;&#214;&#167;</comment>
+        <id name="reportNo" type="string">
+            <column name="REPORT_NO" length="24" />
+            <generator class="assigned" />
+        </id>
+        <property name="count" type="java.lang.Long">
+            <column name="COUNT" precision="10" scale="0">
+                <comment>&#213;&#203;&#187;&#167;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="months" type="java.lang.Long">
+            <column name="MONTHS" precision="10" scale="0">
+                <comment>&#212;&#194;&#183;&#221;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="highestoverdueamountpermon" type="big_decimal">
+            <column name="HIGHESTOVERDUEAMOUNTPERMON" precision="16">
+                <comment>&#181;&#165;&#212;&#194;&#215;&#238;&#184;&#223;&#205;&#184;&#214;&#167;&#215;&#220;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="maxduration" type="java.lang.Long">
+            <column name="MAXDURATION" precision="10" scale="0">
+                <comment>&#215;&#238;&#179;&#164;&#205;&#184;&#214;&#167;&#212;&#194;&#202;&#253;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

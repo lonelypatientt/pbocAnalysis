@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlprofessional" table="F_RE_PLPROFESSIONAL">
+        <comment>F_RE&#214;&#176;&#210;&#181;&#208;&#197;&#207;&#162;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlprofessionalId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="employer" type="string">
+            <column name="EMPLOYER" length="100" not-null="true">
+                <comment>&#185;&#164;&#215;&#247;&#181;&#165;&#206;&#187;</comment>
+            </column>
+        </property>
+        <property name="employeraddress" type="string">
+            <column name="EMPLOYERADDRESS" length="100">
+                <comment>&#181;&#165;&#206;&#187;&#181;&#216;&#214;&#183;</comment>
+            </column>
+        </property>
+        <property name="industry" type="string">
+            <column name="INDUSTRY" length="50">
+                <comment>&#208;&#208;&#210;&#181;</comment>
+            </column>
+        </property>
+        <property name="occupation" type="string">
+            <column name="OCCUPATION" length="70">
+                <comment>&#214;&#176;&#210;&#181;</comment>
+            </column>
+        </property>
+        <property name="duty" type="string">
+            <column name="DUTY" length="65">
+                <comment>&#214;&#176;&#206;&#241;</comment>
+            </column>
+        </property>
+        <property name="title" type="string">
+            <column name="TITLE" length="10">
+                <comment>&#214;&#176;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="startyear" type="string">
+            <column name="STARTYEAR" length="4">
+                <comment>&#189;&#248;&#200;&#235;&#177;&#190;&#181;&#165;&#206;&#187;&#196;&#234;&#183;&#221;</comment>
+            </column>
+        </property>
+        <property name="gettime" type="string">
+            <column name="GETTIME" length="10">
+                <comment>&#208;&#197;&#207;&#162;&#184;&#252;&#208;&#194;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

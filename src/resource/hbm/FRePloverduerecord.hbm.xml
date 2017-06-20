@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePloverduerecord" table="F_RE_PLOVERDUERECORD">
+        <comment>F_RE&#211;&#226;&#198;&#218;/&#205;&#184;&#214;&#167;&#188;&#199;&#194;&#188;&#208;&#197;&#207;&#162;&#195;&#232;&#202;&#246;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePloverduerecordId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="uplevel" type="string">
+                <column name="UPLEVEL" length="20" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+            <key-property name="idenNo" type="int">
+                <column name="IDEN_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="month" type="string">
+            <column name="MONTH" length="7">
+                <comment>&#212;&#194;&#183;&#221;</comment>
+            </column>
+        </property>
+        <property name="lastmonths" type="java.lang.Long">
+            <column name="LASTMONTHS" precision="10" scale="0">
+                <comment>&#179;&#214;&#208;&#248;&#212;&#194;&#183;&#221;</comment>
+            </column>
+        </property>
+        <property name="amount" type="big_decimal">
+            <column name="AMOUNT" precision="16">
+                <comment>&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

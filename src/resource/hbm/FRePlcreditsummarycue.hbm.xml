@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlcreditsummarycue" table="F_RE_PLCREDITSUMMARYCUE">
+        <comment>F_RE&#208;&#197;&#211;&#195;&#187;&#227;&#215;&#220;&#204;&#225;&#202;&#190;</comment>
+        <id name="reportNo" type="string">
+            <column name="REPORT_NO" length="24" />
+            <generator class="assigned" />
+        </id>
+        <property name="houseloancount" type="java.lang.Long">
+            <column name="HOUSELOANCOUNT" precision="10" scale="0">
+                <comment>&#215;&#161;&#183;&#191;&#180;&#251;&#191;&#238;&#177;&#202;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="otherloancount" type="java.lang.Long">
+            <column name="OTHERLOANCOUNT" precision="10" scale="0">
+                <comment>&#198;&#228;&#203;&#251;&#180;&#251;&#191;&#238;&#177;&#202;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="firstloanopenmonth" type="string">
+            <column name="FIRSTLOANOPENMONTH" length="7">
+                <comment>&#202;&#215;&#177;&#202;&#180;&#251;&#191;&#238;&#183;&#162;&#183;&#197;&#212;&#194;&#183;&#221;</comment>
+            </column>
+        </property>
+        <property name="loancardcount" type="java.lang.Long">
+            <column name="LOANCARDCOUNT" precision="10" scale="0">
+                <comment>&#180;&#251;&#188;&#199;&#191;&#168;&#213;&#203;&#187;&#167;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="firstloancardopenmonth" type="string">
+            <column name="FIRSTLOANCARDOPENMONTH" length="10">
+                <comment>&#202;&#215;&#213;&#197;&#180;&#251;&#188;&#199;&#191;&#168;&#183;&#162;&#191;&#168;&#212;&#194;&#183;&#221;</comment>
+            </column>
+        </property>
+        <property name="standardloancardcount" type="java.lang.Long">
+            <column name="STANDARDLOANCARDCOUNT" precision="10" scale="0">
+                <comment>&#215;&#188;&#180;&#251;&#188;&#199;&#191;&#168;&#213;&#203;&#187;&#167;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="firststandardloancardopenmonth" type="string">
+            <column name="FIRSTSTANDARDLOANCARDOPENMONTH" length="10">
+                <comment>&#202;&#215;&#213;&#197;&#215;&#188;&#180;&#251;&#188;&#199;&#191;&#168;&#183;&#162;&#191;&#168;&#212;&#194;&#183;&#221;</comment>
+            </column>
+        </property>
+        <property name="announcecount" type="java.lang.Long">
+            <column name="ANNOUNCECOUNT" precision="10" scale="0">
+                <comment>&#177;&#190;&#200;&#203;&#201;&#249;&#195;&#247;&#202;&#253;&#196;&#191;</comment>
+            </column>
+        </property>
+        <property name="dissentcount" type="java.lang.Long">
+            <column name="DISSENTCOUNT" precision="10" scale="0">
+                <comment>&#210;&#236;&#210;&#233;&#177;&#234;&#215;&#162;&#202;&#253;&#196;&#191;</comment>
+            </column>
+        </property>
+        <property name="perhouseloancount" type="java.lang.Long">
+            <column name="PERHOUSELOANCOUNT" precision="10" scale="0">
+                <comment>&#184;&#246;&#200;&#203;&#215;&#161;&#183;&#191;&#180;&#251;&#191;&#238;&#177;&#202;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="perbusinesshouseloancount" type="java.lang.Long">
+            <column name="PERBUSINESSHOUSELOANCOUNT" precision="10" scale="0">
+                <comment>&#184;&#246;&#200;&#203;&#201;&#204;&#211;&#195;&#183;&#191;&#180;&#251;&#191;&#238;&#177;&#202;&#202;&#253;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

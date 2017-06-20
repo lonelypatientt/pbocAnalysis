@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FReFicopredata" table="F_RE_FICOPREDATA" >
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FReFicopredataId">
+            <key-property name="appcode" type="string">
+                <column name="APPCODE" length="32" />
+            </key-property>
+            <key-property name="reportsn" type="string">
+                <column name="REPORTSN" length="30" />
+            </key-property>
+            <key-property name="xmlinfo" type="clob">
+                <column name="XMLINFO" />
+            </key-property>
+            <key-property name="messagetime" type="serializable">
+                <column name="MESSAGETIME" />
+            </key-property>
+            <key-property name="status" type="string">
+                <column name="STATUS" length="10" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

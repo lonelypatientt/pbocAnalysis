@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlstate" table="F_RE_PLSTATE">
+        <comment>F_RE&#187;&#185;&#191;&#238;&#188;&#199;&#194;&#188;&#195;&#247;&#207;&#184;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlstateId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="uplevel" type="string">
+                <column name="UPLEVEL" length="20" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="paymonth" type="string">
+            <column name="PAYMONTH" length="7">
+                <comment>&#187;&#185;&#191;&#238;&#212;&#194;</comment>
+            </column>
+        </property>
+        <property name="paystate" type="string">
+            <column name="PAYSTATE" length="30">
+                <comment>&#184;&#195;&#212;&#194;&#187;&#185;&#191;&#238;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

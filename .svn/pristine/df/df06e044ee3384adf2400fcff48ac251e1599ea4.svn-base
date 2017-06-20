@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlloan" table="F_RE_PLLOAN">
+        <comment>F_RE&#180;&#251;&#191;&#238;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlloanId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="cue" type="string">
+            <column name="CUE" length="1000">
+                <comment>&#187;&#249;&#177;&#190;&#208;&#197;&#207;&#162;&#204;&#225;&#202;&#190;</comment>
+            </column>
+        </property>
+        <property name="state" type="string">
+            <column name="STATE" length="2">
+                <comment>&#213;&#203;&#187;&#167;&#215;&#180;&#204;&#172;1 &#213;&#253;&#179;&#163; 2 &#211;&#226;&#198;&#218; 3 &#189;&#225;&#199;&#229; 4
+                &#180;&#244;&#213;&#202; 5 &#215;&#170;&#179;&#246; 6 &#186;&#203;&#207;&#250;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

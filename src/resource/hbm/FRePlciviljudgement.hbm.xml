@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlciviljudgement" table="F_RE_PLCIVILJUDGEMENT">
+        <comment>F_RE&#195;&#241;&#202;&#194;&#197;&#208;&#190;&#246;&#188;&#199;&#194;&#188;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlciviljudgementId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="court" type="string">
+            <column name="COURT" length="80">
+                <comment>&#193;&#162;&#176;&#184;&#183;&#168;&#212;&#186;</comment>
+            </column>
+        </property>
+        <property name="casereason" type="string">
+            <column name="CASEREASON" length="40">
+                <comment>&#176;&#184;&#211;&#201;</comment>
+            </column>
+        </property>
+        <property name="registerdate" type="string">
+            <column name="REGISTERDATE" length="10">
+                <comment>&#193;&#162;&#176;&#184;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="closedtype" type="string">
+            <column name="CLOSEDTYPE" length="100">
+                <comment>&#189;&#225;&#176;&#184;&#183;&#189;&#202;&#189;</comment>
+            </column>
+        </property>
+        <property name="caseresult" type="string">
+            <column name="CASERESULT" length="200">
+                <comment>&#197;&#208;&#190;&#246;/&#181;&#247;&#189;&#226;&#189;&#225;&#185;&#251;</comment>
+            </column>
+        </property>
+        <property name="casevalidatedate" type="string">
+            <column name="CASEVALIDATEDATE" length="10">
+                <comment>&#197;&#208;&#190;&#246;/&#181;&#247;&#189;&#226;&#201;&#250;&#208;&#167;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="suitobject" type="string">
+            <column name="SUITOBJECT" length="200">
+                <comment>&#203;&#223;&#203;&#207;&#177;&#234;&#181;&#196;</comment>
+            </column>
+        </property>
+        <property name="suitobjectmoney" type="big_decimal">
+            <column name="SUITOBJECTMONEY" precision="16">
+                <comment>&#203;&#223;&#203;&#207;&#177;&#234;&#181;&#196;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

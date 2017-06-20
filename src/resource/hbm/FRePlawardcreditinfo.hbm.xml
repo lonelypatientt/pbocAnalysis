@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlawardcreditinfo" table="F_RE_PLAWARDCREDITINFO" >
+        <comment>F_RE&#208;&#197;&#211;&#195;&#191;&#168;&#202;&#218;&#208;&#197;&#199;&#233;&#191;&#246;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlawardcreditinfoId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="uplevel" type="string">
+                <column name="UPLEVEL" length="20" />
+            </key-property>
+            <key-property name="idenNo" type="int">
+                <column name="IDEN_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="financeorg" type="string">
+            <column name="FINANCEORG" length="100">
+                <comment>&#183;&#162;&#191;&#168;&#187;&#250;&#185;&#185;</comment>
+            </column>
+        </property>
+        <property name="account" type="string">
+            <column name="ACCOUNT" length="40">
+                <comment>&#210;&#181;&#206;&#241;&#186;&#197;</comment>
+            </column>
+        </property>
+        <property name="currency" type="string">
+            <column name="CURRENCY" length="50">
+                <comment>&#177;&#210;&#214;&#214;</comment>
+            </column>
+        </property>
+        <property name="opendate" type="string">
+            <column name="OPENDATE" length="10">
+                <comment>&#183;&#162;&#191;&#168;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="creditlimitamount" type="big_decimal">
+            <column name="CREDITLIMITAMOUNT" precision="16">
+                <comment>&#202;&#218;&#208;&#197;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="guaranteetype" type="string">
+            <column name="GUARANTEETYPE" length="20">
+                <comment>&#181;&#163;&#177;&#163;&#183;&#189;&#202;&#189;</comment>
+            </column>
+        </property>
+        <property name="stateenddate" type="string">
+            <column name="STATEENDDATE" length="10">
+                <comment>&#189;&#216;&#214;&#185;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="state" type="string">
+            <column name="STATE" length="20">
+                <comment>&#213;&#203;&#187;&#167;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+        <property name="balance" type="big_decimal">
+            <column name="BALANCE" precision="16">
+                <comment>&#211;&#224;&#182;&#238;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

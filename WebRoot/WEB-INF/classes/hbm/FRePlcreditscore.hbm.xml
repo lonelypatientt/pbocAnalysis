@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlcreditscore" table="F_RE_PLCREDITSCORE">
+        <comment>F_RE&#214;&#208;&#213;&#247;&#208;&#197;&#198;&#192;&#183;&#214;</comment>
+        <id name="reportNo" type="string">
+            <column name="REPORT_NO" length="24" />
+            <generator class="assigned" />
+        </id>
+        <property name="score" type="string">
+            <column name="SCORE" length="80">
+                <comment>&#198;&#192;&#183;&#214;</comment>
+            </column>
+        </property>
+        <property name="month" type="string">
+            <column name="MONTH" length="7">
+                <comment>&#198;&#192;&#183;&#214;&#212;&#194;&#183;&#221;</comment>
+            </column>
+        </property>
+        <property name="scorelevel" type="string">
+            <column name="SCORELEVEL" length="10">
+                <comment>&#198;&#192;&#183;&#214;&#207;&#224;&#182;&#212;&#206;&#187;&#214;&#195;</comment>
+            </column>
+        </property>
+        <property name="scoreelements" type="string">
+            <column name="SCOREELEMENTS" length="500">
+                <comment>&#198;&#192;&#183;&#214;&#210;&#242;&#203;&#216;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

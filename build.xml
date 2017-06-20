@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================  ================================== -->
+<project default="default" name="sagittarius">
+	<description>
+		@app.fullname@
+	</description> 
+
+
+	<!-- ====================================================================== -->
+	<!-- Build environment properties                                           -->
+	<!-- ====================================================================== -->
+
+	<property file="build.properties" />
+
+	<property name="build.dir" value="target" />
+
+	<property name="build.outputDir" value="${build.dir}/classes" />
+	<property name="build.resourceDir" value="src/resource" />
+	<property name="build.daoDir" value="src/dao" />
+	<property name="build.serviceDir" value="src/service" />
+	<property name="build.webDir" value="src/web" />
+	<property name="build.utilDir" value="src/util" />
+	<property name="build.webServiceDir" value="src/webService" />
+
+	<property name="build.webroot" value="WebRoot" />
+	<property name="build.lib" value="lib" />
+
+	<property name="build.testOutputDir" value="${build.dir}/test-classes" />
+	<property name="build.testDir" value="src/test" />
+	<property name="test.reports" value="${build.dir}/test-reports" />
+	<property name="reporting.outputDirectory" value="${build.dir}/report" />
+
+	<path id="build.classpath">
+		<fileset dir="${build.webroot}/WEB-INF/lib" includes="*.jar" />  
+		<fileset dir="${build.lib}" includes="*.jar" />
+		<fileset dir="${build.lib}/blaze" includes="*.jar" />
+		<fileset dir="${build.lib}/cxf" includes="*.jar" />
+	</path>
+	<path id="build.test.classpath">
+		<fileset dir="${build.webroot}/WEB-INF/lib" includes="*.jar" />
+		<fileset dir="${build.lib}" includes="*.jar" /> 
+		<fileset dir="${build.lib}/junit" includes="*.jar" /> 
+	</path>
+	
+	<!-- ====================================================================== -->
+	<!-- Cleaning up target                                                     -->
+	<!-- ====================================================================== -->
+
+	<target name="clean" description="Clean the output directory">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<!-- ====================================================================== -->
+	<!-- Compilation target                                                     -->
+	<!-- ====================================================================== -->
+
+	<target name="compile" description="Compile the code">
+		<mkdir dir="${build.outputDir}" />
+		<javac destdir="${build.outputDir}" nowarn="false" optimize="false" verbose="false" 
+			fork="false" deprecation="true" source="1.6" target="1.6" encoding="UTF-8" includeantruntime="on">
+			<src>
+				<pathelement location="${build.daoDir}" />
+				<pathelement location="${build.serviceDir}" />
+				<pathelement location="${build.webDir}" />
+				<pathelement location="${build.utilDir}" />
+				<pathelement location="${build.webServiceDir}" />
+			</src>
+			<classpath refid="build.classpath" />
+		</javac>
+
+		<copy todir="${build.outputDir}">
+			<fileset dir="${build.daoDir}">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<copy todir="${build.outputDir}">
+			<fileset dir="${build.serviceDir}">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<copy todir="${build.outputDir}">
+			<fileset dir="${build.webDir}">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+		<copy todir="${build.outputDir}">
+			<fileset dir="${build.resourceDir}">
+				<include name="**"/>
+			</fileset>
+		</copy>
+		<copy todir="${build.outputDir}">
+			<fileset dir="${build.webServiceDir}">
+				<include name="**"/>
+			</fileset>
+		</copy>
+
+		<copy todir="${build.outputDir}">
+			<fileset dir="${build.testDir}">
+				<include name="hsqldb/**"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ====================================================================== -->
+	<!-- Test-compilation target                                                -->
+	<!-- ====================================================================== -->
+
+	<target name="compile-tests" depends="compile" description="Compile the test code" unless="skipTests">
+		<mkdir dir="${build.testOutputDir}" />
+		<javac destdir="${build.testOutputDir}"   encoding="UTF-8"  source="1.6" target="1.6" 
+			nowarn="false" debug="true" optimize="false" deprecation="true" fork="false">
+			<src>
+				<pathelement location="${build.testDir}}" />
+			</src>
+			<classpath>
+				<path refid="build.test.classpath" />
+				<pathelement location="${build.outputDir}" />
+			</classpath>
+		</javac>
+		<copy todir="${build.testOutputDir}">
+			<fileset dir="${build.testResourceDir}">
+				<exclude name="*.java" />
+			</fileset>
+		</copy>
+	</target>
+
+	<!-- ====================================================================== -->
+	<!-- Run all tests                                                          -->
+	<!-- ====================================================================== -->
+
+	<target name="test" depends="compile-tests, junit-missing" unless="junit.skipped" description="Run the test cases">
+		<mkdir dir="${test.reports}" />
+		<junit printSummary="yes" haltonerror="true" haltonfailure="true" fork="true" dir=".">
+			<sysproperty key="basedir" value="." />
+			<formatter type="xml" />
+			<formatter type="plain" usefile="false" />
+			<classpath>
+				<path refid="build.test.classpath" />
+				<pathelement location="${build.outputDir}" />
+				<pathelement location="${build.testOutputDir}" />
+			</classpath>
+			<batchtest todir="${test.reports}" unless="test">
+				<fileset dir="${build.testDir}">
+					<include name="**/Test*.java" />
+					<include name="**/*Test.java" />
+					<include name="**/*TestCase.java" />
+					<exclude name="**/*Abstract*Test.java" />
+				</fileset>
+			</batchtest>
+			<batchtest todir="${test.reports}" if="test">
+				<fileset dir="${build.testDir}">
+					<include name="**/${test}.java" />
+					<exclude name="**/*Abstract*Test.java" />
+					<exclude name="**/*Base*Test.java" />
+				</fileset>
+			</batchtest>
+		</junit>
+	</target>
+
+	<target name="test-junit-present">
+		<available classname="junit.framework.Test" property="junit.present" />
+	</target>
+
+	<target name="test-junit-status" depends="test-junit-present">
+		<condition property="junit.missing">
+			<and>
+				<isfalse value="${junit.present}" />
+				<isfalse value="${skipTests}" />
+			</and>
+		</condition>
+		<condition property="junit.skipped">
+			<or>
+				<isfalse value="${junit.present}" />
+				<istrue value="${skipTests}" />
+			</or>
+		</condition>
+	</target>
+
+	<target name="junit-missing" depends="test-junit-status" if="junit.missing">
+		<echo>=================================== WARNING ===================================</echo>
+		<echo> JUnit is not present in your $ANT_HOME/lib directory. Tests not executed.</echo>
+		<echo>===============================================================================</echo>
+	</target>
+
+	<!-- ====================================================================== -->
+	<!-- Javadoc target                                                         -->
+	<!-- ====================================================================== -->
+
+	<target name="javadoc" description="Generates the Javadoc of the application">
+		<javadoc sourcepath="${build.srcDir}" packagenames="*" destdir="${reporting.outputDirectory}/apidocs" 
+			access="protected" old="false"  version="true" use="true" 
+			author="true" splitindex="false" nodeprecated="false" 
+			nodeprecatedlist="false" notree="false" noindex="false" 
+			nohelp="false" nonavbar="false" serialwarn="false" 
+			charset="UTF-8" linksource="false" breakiterator="false">
+			<classpath refid="build.classpath" />
+		</javadoc>
+	</target>
+
+	<!-- ====================================================================== -->
+	<!-- Package target                                                         -->
+	<!-- ====================================================================== -->
+
+	<target name="package" depends="compile,test" description="Package the application">
+		<copy file="${basedir}/readme.txt" todir="${build.outputDir}/META-INF" />
+		<jar jarfile="${build.dir}/${build.finalName}.jar" compress="true" index="false" excludes="**/package.html">
+			<fileset dir="${build.outputDir}">
+				<exclude name="log4j.properties" />
+				<exclude name="application.properties" />
+				<exclude name="applicationContext-*.xml" />
+				<exclude name="parameters.properties" />
+				<exclude name="blazeServer.properties" />
+				<exclude name="blazeWebService.properties" />
+				<exclude name="menufile.xml" />
+			</fileset>
+		</jar>
+	</target>
+
+	<!-- ====================================================================== -->
+	<!-- Package source file target                                             -->
+	<!-- ====================================================================== -->
+	<target name="package-source" description="Package the source code">
+		<jar jarfile="${build.dir}/${build.finalName}-sources.jar" compress="true" index="false">
+			<fileset dir="${build.daoDir}" />
+			<fileset dir="${build.serviceDir}" />
+			<fileset dir="${build.webDir}" />
+			<fileset dir="${build.utilDir}" />
+			<fileset dir="${build.resourceDir}"/>
+			<fileset dir="${build.webServiceDir}"/>
+		</jar>
+	</target>
+
+
+
+	<!-- ====================================================================== -->
+	<!-- Package war                                                            -->
+	<!-- ====================================================================== -->
+	<macrodef name="war4profile" description="根据不同的profile进行打包，使用目录 profile 下对应的配置文件">
+		<attribute name="profile" />
+		<sequential>
+			<property name="conf" value="${basedir}/profile/@{profile}" />
+			<property name="webtmp" value="${build.dir}/${build.finalName}" /> 
+
+			<filterset id="myFilterSet" begintoken="%" endtoken="*">
+				<filtersfile file="${conf}/deploy.properties" />
+			</filterset> 
+			<copy todir="${webtmp}/WEB-INF/lib" 
+				file="${build.dir}/${build.finalName}.jar">
+			</copy> 
+			<war destfile="${webtmp}.war" compress="true" webxml="${build.webroot}/WEB-INF/web.xml">
+				<lib dir="${webtmp}/WEB-INF/lib" />
+				<classes dir="${build.outputDir}"> 
+					<include name="log4j.properties" />
+					<include name="application.properties" />
+					<include name="blazeServer.properties" />
+					<include name="blazeWebService.properties" />
+					<include name="applicationContext-*.xml" />
+					<include name="parameters.properties" /> 
+					<include name="menufile.xml" />
+				</classes>
+				<fileset dir="${build.webroot}">
+					<exclude name="WEB-INF/web.xml" />
+					<exclude name="WEB-INF/classes/**/**" />
+				</fileset>
+			</war>
+
+			<!-- <echo message="使用目录 ${conf} 下的配置文件打包完成" />-->
+		</sequential>
+	</macrodef>
+
+	<target name="assembly" depends="jar" description="按指定的profile 构建发布包">
+		<war4profile profile="${profile}" />
+	</target>
+
+	<target name="jar" depends="package,package-source" description="Builds the jar for the application" />
+
+
+	
+	<!-- ====================================================================== -->
+	<!-- default target                                                         -->
+	<!-- ====================================================================== -->
+ 
+	<target name="depends">
+		<antcall target="clean" />
+		<antcall target="compile" />
+		<antcall target="compile-tests" />
+	</target>
+
+	<target name="default" depends="depends" description="default target">
+		<antcall target="assembly" /> 
+	</target>
+</project>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePltaxarrear" table="F_RE_PLTAXARREAR">
+        <comment>F_RE&#199;&#183;&#203;&#176;&#188;&#199;&#194;&#188;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePltaxarrearId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="organname" type="string">
+            <column name="ORGANNAME" length="50">
+                <comment>&#214;&#247;&#185;&#220;&#203;&#176;&#206;&#241;&#187;&#250;&#185;&#216;</comment>
+            </column>
+        </property>
+        <property name="taxarreaamount" type="big_decimal">
+            <column name="TAXARREAAMOUNT" precision="16">
+                <comment>&#199;&#183;&#203;&#176;&#215;&#220;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="revenuedate" type="string">
+            <column name="REVENUEDATE" length="10">
+                <comment>&#199;&#183;&#203;&#176;&#205;&#179;&#188;&#198;&#200;&#213;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

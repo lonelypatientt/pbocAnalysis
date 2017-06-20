@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlunpaidloan" table="F_RE_PLUNPAIDLOAN">
+        <comment>F_RE&#206;&#180;&#189;&#225;&#199;&#229;&#180;&#251;&#191;&#238;&#208;&#197;&#207;&#162;&#187;&#227;&#215;&#220;</comment>
+        <id name="reportNo" type="string">
+            <column name="REPORT_NO" length="24" />
+            <generator class="assigned" />
+        </id>
+        <property name="accountcount" type="java.lang.Long">
+            <column name="ACCOUNTCOUNT" precision="10" scale="0">
+                <comment>&#177;&#202;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="financecorpcount" type="java.lang.Long">
+            <column name="FINANCECORPCOUNT" precision="10" scale="0">
+                <comment>&#180;&#251;&#191;&#238;&#183;&#168;&#200;&#203;&#187;&#250;&#185;&#185;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="financeorgcount" type="java.lang.Long">
+            <column name="FINANCEORGCOUNT" precision="10" scale="0">
+                <comment>&#180;&#251;&#191;&#238;&#187;&#250;&#185;&#185;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="creditlimit" type="big_decimal">
+            <column name="CREDITLIMIT" precision="16">
+                <comment>&#186;&#207;&#205;&#172;&#215;&#220;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="balance" type="big_decimal">
+            <column name="BALANCE" precision="16">
+                <comment>&#211;&#224;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="latest6monthusedavgamount" type="big_decimal">
+            <column name="LATEST6MONTHUSEDAVGAMOUNT" precision="16">
+                <comment>&#215;&#238;&#189;&#252;6&#184;&#246;&#212;&#194;&#198;&#189;&#190;&#249;&#211;&#166;&#187;&#185;&#191;&#238;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

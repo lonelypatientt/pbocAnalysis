@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+        "-//Apache Struts//XWork Validator Config 1.0//EN"
+  		"http://struts.apache.org/dtds/xwork-validator-config-1.0.dtd">
+<validators>
+	<!-- ==============================【自定义校验器】============================== -->
+	<!-- 验证手机号码 -->
+	<validator name="mobilenumber"
+		class="com.caafc.pbocAnalysis.validator.MobileNumberValidator" />
+	<!-- 验证电话号码 -->
+	<validator name="telnumber"
+		class="com.caafc.pbocAnalysis.validator.TelNumberValidator" />
+	<!-- 验证固定电话号码 -->
+	<validator name="fixtelnumber"
+		class="com.caafc.pbocAnalysis.validator.FixTelNumberValidator" />
+	<!-- 验证身份证号码 -->
+	<validator name="idcardnumber"
+		class="com.caafc.pbocAnalysis.validator.FixTelNumberValidator" />
+	<!-- 验证大小写英文字母 -->
+	<validator name="letter"
+		class="com.caafc.pbocAnalysis.validator.LetterValidator" />
+	<!-- 验证大小写英文字母和空格 -->
+	<validator name="letterspace"
+		class="com.caafc.pbocAnalysis.validator.LetterSpaceValidator" />
+	<!-- 验证年份 -->
+	<validator name="year"
+		class="com.caafc.pbocAnalysis.validator.YearValidator" />
+	<!-- 验证浮点数(小数2位) -->
+	<validator name="floatnumber"
+		class="com.caafc.pbocAnalysis.validator.FloatNumberValidator" />
+	<!-- 验证正整数(Long对象和Integer对象都可以验证) -->
+	<validator name="intnumber"
+		class="com.caafc.pbocAnalysis.validator.IntNumberValidator" />
+	<!-- 验证邮政编码 -->
+	<validator name="postalcode"
+		class="com.caafc.pbocAnalysis.validator.PostalCodeValidator" />
+	<!-- 验证字符串是由特定的分割符组成 -->
+	<validator name="stringsplit"
+		class="com.caafc.pbocAnalysis.validator.StringSplitValidator" />
+	<!-- 验证客户号格式不能含有单引号 -->
+	<validator name="custNumber"
+		class="com.caafc.pbocAnalysis.validator.CustNumberValidator" />
+</validators>

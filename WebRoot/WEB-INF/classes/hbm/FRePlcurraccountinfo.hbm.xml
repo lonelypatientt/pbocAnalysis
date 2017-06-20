@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlcurraccountinfo" table="F_RE_PLCURRACCOUNTINFO" >
+        <comment>F_RE&#181;&#177;&#199;&#176;&#213;&#203;&#187;&#167;&#208;&#197;&#207;&#162;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlcurraccountinfoId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="uplevel" type="string">
+                <column name="UPLEVEL" length="20" />
+            </key-property>
+            <key-property name="idenNo" type="int">
+                <column name="IDEN_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="stateenddate" type="string">
+            <column name="STATEENDDATE" length="10">
+                <comment>&#215;&#180;&#204;&#172;&#189;&#216;&#214;&#185;&#200;&#213;</comment>
+            </column>
+        </property>
+        <property name="stateendmonth" type="string">
+            <column name="STATEENDMONTH" length="7">
+                <comment>&#215;&#180;&#204;&#172;&#189;&#216;&#214;&#185;&#212;&#194;/&#215;&#170;&#179;&#246;&#212;&#194;</comment>
+            </column>
+        </property>
+        <property name="class5state" type="string">
+            <column name="CLASS5STATE" length="10">
+                <comment>&#206;&#229;&#188;&#182;&#183;&#214;&#192;&#224;</comment>
+            </column>
+        </property>
+        <property name="balance" type="big_decimal">
+            <column name="BALANCE" precision="16">
+                <comment>&#177;&#190;&#189;&#240;&#211;&#224;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="remainpaymentcyc" type="java.lang.Long">
+            <column name="REMAINPAYMENTCYC" precision="10" scale="0">
+                <comment>&#202;&#163;&#211;&#224;&#187;&#185;&#191;&#238;&#198;&#218;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="scheduledpaymentamount" type="big_decimal">
+            <column name="SCHEDULEDPAYMENTAMOUNT" precision="16">
+                <comment>&#177;&#190;&#212;&#194;&#211;&#166;&#187;&#185;&#191;&#238;</comment>
+            </column>
+        </property>
+        <property name="scheduledpaymentdate" type="string">
+            <column name="SCHEDULEDPAYMENTDATE" length="10">
+                <comment>&#211;&#166;&#187;&#185;&#191;&#238;&#200;&#213;</comment>
+            </column>
+        </property>
+        <property name="actualpaymentamount" type="big_decimal">
+            <column name="ACTUALPAYMENTAMOUNT" precision="16">
+                <comment>&#177;&#190;&#212;&#194;&#202;&#181;&#187;&#185;&#191;&#238;</comment>
+            </column>
+        </property>
+        <property name="recentpaydate" type="string">
+            <column name="RECENTPAYDATE" length="10">
+                <comment>&#215;&#238;&#189;&#252;&#210;&#187;&#180;&#206;&#187;&#185;&#191;&#238;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="state" type="string">
+            <column name="STATE" length="20">
+                <comment>&#213;&#203;&#187;&#167;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

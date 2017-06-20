@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-15 16:17:32 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePlassetdisposition" table="F_RE_PLASSETDISPOSITION" >
+        <comment>F_RE&#215;&#202;&#178;&#250;&#180;&#166;&#214;&#195;&#208;&#197;&#207;&#162;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePlassetdispositionId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="serialNo" type="int">
+                <column name="SERIAL_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="organname" type="string">
+            <column name="ORGANNAME" length="100">
+                <comment>&#215;&#202;&#178;&#250;&#185;&#220;&#192;&#237;&#185;&#171;&#203;&#190;</comment>
+            </column>
+        </property>
+        <property name="gettime" type="string">
+            <column name="GETTIME" length="10">
+                <comment>&#213;&#174;&#206;&#241;&#189;&#211;&#202;&#213;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="money" type="big_decimal">
+            <column name="MONEY" precision="16">
+                <comment>&#189;&#211;&#202;&#213;&#181;&#196;&#213;&#174;&#200;&#168;&#189;&#240;&#182;&#238;</comment>
+            </column>
+        </property>
+        <property name="latestrepaydate" type="string">
+            <column name="LATESTREPAYDATE" length="10">
+                <comment>&#215;&#238;&#189;&#252;&#210;&#187;&#180;&#206;&#187;&#185;&#191;&#238;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="balance" type="big_decimal">
+            <column name="BALANCE" precision="16">
+                <comment>&#211;&#224;&#182;&#238;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

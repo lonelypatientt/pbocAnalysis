@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-11-16 15:40:46 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.caafc.pbocAnalysis.entity.FRePllatest24monthpaystate" table="F_RE_PLLATEST24MONTHPAYSTATE">
+        <comment>F_RE&#215;&#238;&#189;&#252;24&#184;&#246;&#212;&#194;&#187;&#185;&#191;&#238;&#215;&#180;&#204;&#172;</comment>
+        <composite-id name="id" class="com.caafc.pbocAnalysis.entity.FRePllatest24monthpaystateId">
+            <key-property name="reportNo" type="string">
+                <column name="REPORT_NO" length="24" />
+            </key-property>
+            <key-property name="uplevel" type="int">
+                <column name="UPLEVEL" precision="5" scale="0" />
+            </key-property>
+            <key-property name="idenNo" type="int">
+                <column name="IDEN_NO" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <property name="beginmonth" type="string">
+            <column name="BEGINMONTH" length="10">
+                <comment>&#198;&#240;&#202;&#188;&#212;&#194;</comment>
+            </column>
+        </property>
+        <property name="endmonth" type="string">
+            <column name="ENDMONTH" length="10">
+                <comment>&#189;&#216;&#214;&#185;&#212;&#194;</comment>
+            </column>
+        </property>
+        <property name="latest24state" type="string">
+            <column name="LATEST24STATE" length="24">
+                <comment>24&#184;&#246;&#212;&#194;&#187;&#185;&#191;&#238;&#215;&#180;&#204;&#172;</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
