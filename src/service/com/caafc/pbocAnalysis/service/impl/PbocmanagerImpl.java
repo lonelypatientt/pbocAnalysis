@@ -1560,7 +1560,7 @@ public class PbocmanagerImpl implements Pbocmanager {
 		
 		String PO_BADDEBTSNUM = "";
 		
-		int maxVal = -9999999;
+		int maxVal = -9999998;
 		
 		int PO_BADDEBTSNUMDZ = Integer.valueOf(getPO_BADDEBTSNUMDZ(pbocReport));
 		
