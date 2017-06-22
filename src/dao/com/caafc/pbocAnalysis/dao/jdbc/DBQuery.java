@@ -44,7 +44,7 @@ public class DBQuery {
 		
 		int count = -1;
 		
-		String sql = "SELECT COUNT(0) FROM F_RE_PBOCANALYSIS_temp WHERE REPORTNO='"
+		String sql = "SELECT COUNT(0) FROM F_RE_PBOCANALYSIS WHERE REPORTNO='"
 				+ reportNo + "'";
 		try {
 			DBPoolConnection poll = DBPoolConnection.getInstance();
@@ -75,7 +75,7 @@ public class DBQuery {
 		Connection con = null;
 		PreparedStatement ps = null;
 		int b;
-		String sql = "insert into F_RE_PBOCANALYSIS_temp values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into F_RE_PBOCANALYSIS values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		try{
 			DBPoolConnection poll = DBPoolConnection.getInstance();
 			con = poll.openConnection();
@@ -152,7 +152,7 @@ public class DBQuery {
 		DruidPooledConnection con = null;
 		PreparedStatement ps = null;
 		int b;
-		String sql = "update F_RE_PBOCANALYSIS_temp set custName=?,idNumber=?,cCardAvgLimitRate6M=?," +
+		String sql = "update F_RE_PBOCANALYSIS set custName=?,idNumber=?,cCardAvgLimitRate6M=?," +
 				"creditLoanMaxOverdue6M=?,creditLoanMaxOverdue12M=?,creditLoanMaxOverdue24M=?," +
 				"creditLoanMaxZL=?,creditLoanOverdueNum6M=?,creditLoanOverdueNum12M=?," +
 				"creditLoanOverdueNum24M=?,creditLoanQueryNum3M=?,creditLoanQueryNum6M=?," +
