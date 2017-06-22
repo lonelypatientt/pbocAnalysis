@@ -47,28 +47,22 @@ public class RePlrecorddetail {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj){
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		RePlrecorddetail other = (RePlrecorddetail) obj;
-		if (querier == null) {
-			if (other.querier != null)
-				return false;
-		} else if (!querier.equals(other.querier))
-			return false;
-		if (querydate == null) {
-			if (other.querydate != null)
-				return false;
 		}
-		if (queryreason == null) {
-			if (other.queryreason != null)
-				return false;
-		} else if (!queryreason.equals(other.queryreason))
+		if (obj == null){
 			return false;
+		}
+		if (getClass() != obj.getClass()){
+			return false;
+		}
+		RePlrecorddetail other = (RePlrecorddetail) obj;
 		
+		if (querydate == null) {
+			if (other.querydate != null){
+				return false;
+			}
+		}
 		//处理时间
 		String querydateStr = querydate.substring(0,7);
 		String otherquerydateStr = other.getQuerydate().substring(0,7);
@@ -76,6 +70,39 @@ public class RePlrecorddetail {
 			return false;
 		}
 		
+		
+		if (queryreason == null) {
+			if (other.queryreason != null){
+				return false;
+			}
+		} else if (!queryreason.equals(other.queryreason)){
+			return false;
+		}
+		
+		if (querier == null) {
+			if (other.querier != null){
+				return false;
+			}
+		}
+								
+		//处理机构
+		String querierStr = "";
+		String querierOtherStr = "";
+		
+		if(querier.contains("长安汽车金融有限公司")){
+			querierStr = "长安汽车金融有限公司";
+		}else{
+			querierStr = querier;
+		}
+		
+		if(other.querier.contains("长安汽车金融有限公司")){
+			querierOtherStr = "长安汽车金融有限公司";
+		}else{
+			querierOtherStr = other.querier;
+		}
+		if(!querierStr.equals(querierOtherStr)){
+			return false;
+		}
 		return true;
 	}
 
@@ -118,30 +145,4 @@ public class RePlrecorddetail {
 	public void setQueryreason(String queryreason) {
 		this.queryreason = queryreason;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

@@ -420,14 +420,27 @@ public class PbocmanagerImpl implements Pbocmanager {
 
 		// 获取征信报告查询时间
 		String queryTime = getDate1(header.getQuerytime());
+		
+		//获取当前月份
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		Calendar calendar = Calendar.getInstance();
+		String date = String.valueOf(dateFormat.format(calendar.getTime()));
+		String time = getDate2(date);
+		
 
 		// 筛选查询日期与征信报告查询时间间隔月数小于等于month个月的记录
 		for (RePlrecorddetail rd : resultList) {
 			// 查询日期
 			String dataR = getDate1(rd.getQuerydate());
+			String dete = dataR.substring(0, 7);
+			
 			int months = DateUtil.getMonths(dataR, queryTime)+1;
-			if (months <= month) {
-				count++;
+			if (months <= month){
+				if(dete.equals(time) && rd.getQuerier().contains("长安汽车金融有限公司")){
+					count += 0;
+				}else{
+					count++;
+				}
 			}
 		}
 
