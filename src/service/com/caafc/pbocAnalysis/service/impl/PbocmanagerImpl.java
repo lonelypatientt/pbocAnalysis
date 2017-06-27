@@ -1518,17 +1518,29 @@ public class PbocmanagerImpl implements Pbocmanager {
 		}
 		// 初始化最终汇总结果值
 		int totalCount = 0;
+		int wjhCardCount = 0;
 
 		// 获取征信报告查询时间
 		String queryTime = getDate1(header.getQuerytime());
 
+		//获取未激活贷记卡张数
+		for(int i=0;i<DcardDetailList.size();i++){
+			if(Constant.STATE_WEIJIHUO.equals(DcardDetailList.get(i).getState())){
+				wjhCardCount++;
+			}
+		}
 
-		// 处理信用卡相关逻辑
-		if (!CollectionUtils.isEmpty(DcardDetailList)) {
-			for (CardDetailVo vo : DcardDetailList) {
-				// 初始化临时存储值
-				int tempVal = dCardSumOverdueND(vo, queryTime, 24);
-				totalCount = totalCount + tempVal;
+		//未激活贷记卡的张数等于贷记卡的张数则返回特殊值
+		if(DcardDetailList.size() == wjhCardCount){
+			return String.valueOf(-123465789);
+		}else{
+			// 处理信用卡相关逻辑
+			if (!CollectionUtils.isEmpty(DcardDetailList)) {
+				for (CardDetailVo vo : DcardDetailList) {
+					// 初始化临时存储值
+					int tempVal = dCardSumOverdueND(vo, queryTime, 24);
+					totalCount = totalCount + tempVal;
+				}
 			}
 		}
 
