@@ -224,7 +224,7 @@ public class PbocServiceImpl implements PbocService {
 		}
 
 		//计算信用卡产品的最近6个月的平均额度使用率
-		String cCardAvgLimitRate6M = pbocmanager.getCCardAvgLimitRate6M(cardList);
+		String cCardAvgLimitRate6M = pbocmanager.getCCardAvgLimitRate6M(cardList,loanList);
 		pbocResponse.setCCardAvgLimitRate6M(cCardAvgLimitRate6M);
 		
 	    //计算最近6个月内信贷产品的最大逾期期数
@@ -272,39 +272,39 @@ public class PbocServiceImpl implements PbocService {
 	    pbocResponse.setPbocReportFlag(pbocReportFlag);
 
 	    //计算申请人（征信报告）贷款当前逾期期数
-	    String loanOverdueNum = pbocmanager.getLoanOverdueNum(loanDetailList);
+	    String loanOverdueNum = pbocmanager.getLoanOverdueNum(loanDetailList,cardDetailList);
 	    pbocResponse.setLoanOverdueNum(loanOverdueNum);
 
 	    //计算申请人（征信报告）贷款状态
-	    String loanStatus = pbocmanager.getLoanStatus(loanDetailList);
+	    String loanStatus = pbocmanager.getLoanStatus(loanDetailList,cardDetailList);
 	    pbocResponse.setLoanStatus(loanStatus);
 
 	    //计算申请人（征信报告）信用卡当期逾期期数
-	    String cCardOverdueNum = pbocmanager.getCCardOverdueNum(cardDetailList);
+	    String cCardOverdueNum = pbocmanager.getCCardOverdueNum(loanDetailList,cardDetailList);
 	    pbocResponse.setCCardOverdueNum(cCardOverdueNum);
 
 	    //计算申请人（征信报告）信用卡状态
-	    String cCardStatus = pbocmanager.getCCardStatus(cardDetailList);
+	    String cCardStatus = pbocmanager.getCCardStatus(loanDetailList,cardDetailList);
 	    pbocResponse.setCCardStatus(cCardStatus);
 
 	    //计算申请人（征信报告）近24个月贷款最高逾期期数
-	    String loanMaxOverdue24M = pbocmanager.getLoanMaxOverdue24M(loanDetailList, header);
+	    String loanMaxOverdue24M = pbocmanager.getLoanMaxOverdue24M(loanDetailList,cardDetailList,header);
 	    pbocResponse.setLoanMaxOverdue24M(loanMaxOverdue24M);
 
 	    //计算申请人（征信报告）近24个月贷款累计逾期期数
-	    String loanSumOverdue24M = pbocmanager.getLoanSumOverdue24M(loanDetailList, header);
+	    String loanSumOverdue24M = pbocmanager.getLoanSumOverdue24M(loanDetailList,cardDetailList,header);
 	    pbocResponse.setLoanSumOverdue24M(loanSumOverdue24M);
 
 	    //计算申请人（征信报告）近24个月信用卡最高逾期期数
-	    String cCardMaxOverdue24M = pbocmanager.getCCardMaxOverdue24M(cardDetailList, header);
+	    String cCardMaxOverdue24M = pbocmanager.getCCardMaxOverdue24M(loanDetailList,cardDetailList,header);
 	    pbocResponse.setCCardMaxOverdue24M(cCardMaxOverdue24M);
 
 	    //计算申请人（征信报告）近24个月信用卡累计逾期期数
-	    String cCardSumOverdue24M = pbocmanager.getCCardSumOverdue24M(cardDetailList, header);
+	    String cCardSumOverdue24M = pbocmanager.getCCardSumOverdue24M(loanDetailList,cardDetailList,header);
 	    pbocResponse.setCCardSumOverdue24M(cCardSumOverdue24M);
 
 	    //计算申请人（征信报告）额度使用率超过80%的信用卡的张数
-	    String cCardOut80Rate = pbocmanager.getCCardOut80Rate(cardDetailList);
+	    String cCardOut80Rate = pbocmanager.getCCardOut80Rate(loanDetailList,cardDetailList);
 	    pbocResponse.setCCardOut80Rate(cCardOut80Rate);
 
 	    //计算申请人（征信报告）呆账信息汇总笔数
@@ -312,7 +312,7 @@ public class PbocServiceImpl implements PbocService {
 	    pbocResponse.setBadAccountNum(badAccountNum);
 
 	    //计算申请人（征信报告）资产处置信息汇总笔数
-	    String assetDisposals = pbocmanager.getAssetDisposals(pbocReport);
+	    String assetDisposals = pbocmanager.getAssetDisposals(loanDetailList,cardDetailList,pbocReport);
 	    pbocResponse.setAssetDisposals(assetDisposals);
 
 	    //计算申请人（征信报告）是否存在强制执行记录
@@ -324,55 +324,55 @@ public class PbocServiceImpl implements PbocService {
 	    pbocResponse.setApRecordFlag(apRecordFlag);
 
 	    //计算准贷记卡
-	    String semiCreditCard = pbocmanager.getSemiCreditCard(pbocReport);
+	    String semiCreditCard = pbocmanager.getSemiCreditCard(loanDetailList,cardDetailList,pbocReport);
 	    pbocResponse.setSemiCreditCard(semiCreditCard);
 
 	    //计算贷款历史逾期比例
-	    String loanHisOverdueRate = pbocmanager.getLoanHisOverdueRate(loanDetailList, header);
+	    String loanHisOverdueRate = pbocmanager.getLoanHisOverdueRate(loanDetailList,cardDetailList,header);
 	    pbocResponse.setLoanHisOverdueRate(loanHisOverdueRate);
 
 	    //计算单张信用卡历史逾期比例
-	    String oneCcardHisOverdueRate = pbocmanager.getOneCcardHisOverdueRate(cardDetailList, header);
+	    String oneCcardHisOverdueRate = pbocmanager.getOneCcardHisOverdueRate(loanDetailList,cardDetailList,header);
 	    pbocResponse.setOneCcardHisOverdueRate(oneCcardHisOverdueRate);
 
 	    //计算多张信用卡历史逾期比例
-	    String manyCcardHisOverdueRate = pbocmanager.getManyCcardHisOverdueRate(cardDetailList, header);
+	    String manyCcardHisOverdueRate = pbocmanager.getManyCcardHisOverdueRate(loanDetailList,cardDetailList,header);
 	    pbocResponse.setManyCcardHisOverdueRate(manyCcardHisOverdueRate);
 
 	    //计算申请人（征信报告）贷款月负债
-	    String loanMonthLiabilities = pbocmanager.getLoanMonthLiabilities(loanDetailList);
+	    String loanMonthLiabilities = pbocmanager.getLoanMonthLiabilities(loanDetailList,cardDetailList);
 	    pbocResponse.setLoanMonthLiabilities(loanMonthLiabilities);
 	    
 	    //信用卡产品最大账龄
-		String RESERVED_1 = pbocmanager.getRESERVED_1(cardDetailList, header);
+		String RESERVED_1 = pbocmanager.getRESERVED_1(cardDetailList,loanDetailList, header);
 		pbocResponse.setRESERVED_1(RESERVED_1);
 		
 		//住房贷款笔数
-		String RESERVED_2 = pbocmanager.getRESERVED_2(loanDetailList);
+		String RESERVED_2 = pbocmanager.getRESERVED_2(loanDetailList,cardDetailList);
 		pbocResponse.setRESERVED_2(RESERVED_2);
 		
 		//信用卡产品的最近6个月的平均额度使用率（授信概要）
-		String RESERVED_3 = pbocmanager.getRESERVED_3(pbocReport);
+		String RESERVED_3 = pbocmanager.getRESERVED_3(pbocReport,loanDetailList,cardDetailList);
 		pbocResponse.setRESERVED_3(RESERVED_3);
 		
 		//最近24个月内准贷记卡产品的最大逾期期数（不考虑呆账）
-		String PO_SEMICREDITCARDNO = pbocmanager.getPO_SEMICREDITCARDNO(ZcardDetailList, header);
+		String PO_SEMICREDITCARDNO = pbocmanager.getPO_SEMICREDITCARDNO(loanDetailList,cardDetailList,ZcardDetailList, header);
 		pbocResponse.setPO_SEMICREDITCARDNO(PO_SEMICREDITCARDNO);
 		
 		//最近24个月内贷款产品的最大逾期期数（不考虑呆账）
-		String PO_LOANTOPDUENUM24NO = pbocmanager.getPO_LOANTOPDUENUM24NO(loanDetailList, header);
+		String PO_LOANTOPDUENUM24NO = pbocmanager.getPO_LOANTOPDUENUM24NO(loanDetailList,cardDetailList,header);
 		pbocResponse.setPO_LOANTOPDUENUM24NO(PO_LOANTOPDUENUM24NO);
 		
 		//最近24个月内单个贷款产品的累计逾期期数（不考虑呆账）
-		String PO_LOANSUMDUENUM24NO = pbocmanager.getPO_LOANSUMDUENUM24NO(loanDetailList, header);
+		String PO_LOANSUMDUENUM24NO = pbocmanager.getPO_LOANSUMDUENUM24NO(loanDetailList,cardDetailList,header);
 		pbocResponse.setPO_LOANSUMDUENUM24NO(PO_LOANSUMDUENUM24NO);
 		
 		//最近24个月内单张贷记卡产品的最大逾期期数（不考虑呆账）
-		String PO_DEBITCARDTOP24DUENUMNO = pbocmanager.getPO_DEBITCARDTOP24DUENUMNO(DcardDetailList, header);
+		String PO_DEBITCARDTOP24DUENUMNO = pbocmanager.getPO_DEBITCARDTOP24DUENUMNO(loanDetailList,cardDetailList,DcardDetailList, header);
 		pbocResponse.setPO_DEBITCARDTOP24DUENUMNO(PO_DEBITCARDTOP24DUENUMNO);
 		
 		//最近24个月内单张贷记卡产品的累计逾期期数（不考虑呆账）
-		String PO_DEBITCARDSUM24DUENUMNO = pbocmanager.getPO_DEBITCARDSUM24DUENUMNO(DcardDetailList, header);
+		String PO_DEBITCARDSUM24DUENUMNO = pbocmanager.getPO_DEBITCARDSUM24DUENUMNO(loanDetailList,cardDetailList,DcardDetailList, header);
 		pbocResponse.setPO_DEBITCARDSUM24DUENUMNO(PO_DEBITCARDSUM24DUENUMNO);
 		
 		//担保贷款五级分类
@@ -384,7 +384,7 @@ public class PbocServiceImpl implements PbocService {
 		pbocResponse.setPO_BADDEBTSNUM(PO_BADDEBTSNUM);
 		
 		//信用卡当前逾期期数（贷记卡）
-		String PO_CREDITCARDCURDUED = pbocmanager.getPO_CREDITCARDCURDUED(DcardDetailList);
+		String PO_CREDITCARDCURDUED = pbocmanager.getPO_CREDITCARDCURDUED(loanDetailList,cardDetailList,DcardDetailList);
 		pbocResponse.setPO_CREDITCARDCURDUED(PO_CREDITCARDCURDUED);
 		
 	}

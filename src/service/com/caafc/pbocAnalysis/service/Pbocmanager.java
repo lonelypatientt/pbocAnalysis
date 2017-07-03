@@ -16,6 +16,7 @@ import com.caafc.pbocAnalysis.dto.RePlrecorddetail;
 import com.caafc.pbocAnalysis.vo.CardDetailVo;
 import com.caafc.pbocAnalysis.vo.LoanDetailVo;
 import com.caafc.pbocAnalysis.vo.PlguaranteeinfoVo;
+import com.caafc.pbocAnalysis.vo.RePlloanVo;
 import com.caafc.pbocAnalysis.vo.RePlloancardVo;
 
 /**
@@ -31,7 +32,7 @@ public interface Pbocmanager {
 	 * @return 
 	 * @throws Exception 
 	 */
-    public String getCCardAvgLimitRate6M(List<RePlloancardVo> cardList)throws Exception;
+    public String getCCardAvgLimitRate6M(List<RePlloancardVo> cardList,List<RePlloanVo> loanList)throws Exception;
 
     /**
      * 计算最近6个月内信贷产品的最大逾期期数
@@ -127,7 +128,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getLoanOverdueNum(List<LoanDetailVo> loanDetailList)throws Exception;
+    public String getLoanOverdueNum(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList)throws Exception;
 
     /**
      * 计算申请人（征信报告）贷款状态
@@ -135,7 +136,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getLoanStatus(List<LoanDetailVo> loanDetailList)throws Exception;
+    public String getLoanStatus(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList)throws Exception;
 
     /**
      * 计算申请人（征信报告）信用卡当期逾期期数
@@ -143,7 +144,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getCCardOverdueNum(List<CardDetailVo> cardDetailList)throws Exception;
+    public String getCCardOverdueNum(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList)throws Exception;
 
     /**
      * 计算申请人（征信报告）信用卡状态
@@ -151,15 +152,15 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getCCardStatus(List<CardDetailVo> cardDetailList)throws Exception;
+    public String getCCardStatus(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList)throws Exception;
 
     /**
      * 计算申请人（征信报告）近24个月贷款最高逾期期数
      * @param reportNo
-     * @return
+     * @return在、
      * @throws Exception
      */
-    public String getLoanMaxOverdue24M(List<LoanDetailVo> loanDetailList, RePlmessageheader header)throws Exception;
+    public String getLoanMaxOverdue24M(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,RePlmessageheader header)throws Exception;
 
     /**
      * 计算申请人（征信报告）近24个月贷款累计逾期期数
@@ -167,7 +168,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getLoanSumOverdue24M(List<LoanDetailVo> loanDetailList, RePlmessageheader header)throws Exception;
+    public String getLoanSumOverdue24M(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header)throws Exception;
 
     /**
      * 计算申请人（征信报告）近24个月信用卡最高逾期期数
@@ -175,7 +176,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getCCardMaxOverdue24M(List<CardDetailVo> cardDetailList, RePlmessageheader header)throws Exception;
+    public String getCCardMaxOverdue24M(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header)throws Exception;
 
     /**
      * 计算申请人（征信报告）近24个月信用卡累计逾期期数
@@ -183,7 +184,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getCCardSumOverdue24M(List<CardDetailVo> cardDetailList, RePlmessageheader header)throws Exception;
+    public String getCCardSumOverdue24M(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header)throws Exception;
 
     /**
      * 计算申请人（征信报告）额度使用率超过80%的信用卡的张数
@@ -191,7 +192,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getCCardOut80Rate(List<CardDetailVo> cardDetailList)throws Exception;
+    public String getCCardOut80Rate(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList)throws Exception;
 
     /**
      * 计算申请人（征信报告）呆账信息汇总笔数
@@ -207,7 +208,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getAssetDisposals(JSONObject pbocReport)throws Exception;
+    public String getAssetDisposals(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,JSONObject pbocReport)throws Exception;
 
     /**
      * 计算申请人（征信报告）是否存在强制执行记录
@@ -231,7 +232,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getSemiCreditCard(JSONObject pbocReport)throws Exception;
+    public String getSemiCreditCard(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,JSONObject pbocReport)throws Exception;
 
     /**
      * 计算贷款历史逾期比例
@@ -239,7 +240,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getLoanHisOverdueRate(List<LoanDetailVo> loanDetailList, RePlmessageheader header)throws Exception;
+    public String getLoanHisOverdueRate(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header)throws Exception;
 
     /**
      * 计算单张信用卡历史逾期比例
@@ -247,7 +248,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getOneCcardHisOverdueRate(List<CardDetailVo> cardDetailList, RePlmessageheader header)throws Exception;
+    public String getOneCcardHisOverdueRate(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header)throws Exception;
     
     /**
      * 计算多张信用卡历史逾期比例
@@ -255,7 +256,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getManyCcardHisOverdueRate(List<CardDetailVo> cardDetailList, RePlmessageheader header)throws Exception;
+    public String getManyCcardHisOverdueRate(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header)throws Exception;
     
     /**
      * 计算申请人（征信报告）贷款月负债
@@ -263,7 +264,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getLoanMonthLiabilities(List<LoanDetailVo> loanDetailList)throws Exception;
+    public String getLoanMonthLiabilities(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList)throws Exception;
 	
     /**
      * 信用卡产品最大账龄
@@ -271,7 +272,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getRESERVED_1(List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception;
+    public String getRESERVED_1(List<CardDetailVo> cardDetailList,List<LoanDetailVo> loanDetailList, RePlmessageheader header) throws Exception;
     
     
     /**
@@ -280,7 +281,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getRESERVED_2(List<LoanDetailVo> loanDetailList) throws Exception;
+    public String getRESERVED_2(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList) throws Exception;
     
     
     /**
@@ -289,14 +290,14 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getRESERVED_3(JSONObject pbocReport) throws Exception;
+    public String getRESERVED_3(JSONObject pbocReport,List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList) throws Exception;
     
     /**
      * 最近24个月内准贷记卡产品的最大逾期期数（不考虑呆账）
      * @return
      * @throws Exception
      */
-    public String getPO_SEMICREDITCARDNO(List<CardDetailVo> ZcardDetailList, RePlmessageheader header) throws Exception;
+    public String getPO_SEMICREDITCARDNO(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,List<CardDetailVo> ZcardDetailList, RePlmessageheader header) throws Exception;
     
     /**
      * 最近24个月内贷款产品的最大逾期期数（不考虑呆账）
@@ -305,7 +306,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getPO_LOANTOPDUENUM24NO(List<LoanDetailVo> loanDetailList, RePlmessageheader header) throws Exception;
+    public String getPO_LOANTOPDUENUM24NO(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception;
     
     /**
      * 最近24个月内单个贷款产品的累计逾期期数（不考虑呆账）
@@ -314,7 +315,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getPO_LOANSUMDUENUM24NO(List<LoanDetailVo> loanDetailList, RePlmessageheader header) throws Exception;
+    public String getPO_LOANSUMDUENUM24NO(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception;
     
     /**
      * 最近24个月内单张贷记卡产品的最大逾期期数（不考虑呆账）
@@ -323,7 +324,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getPO_DEBITCARDTOP24DUENUMNO(List<CardDetailVo> DcardDetailList, RePlmessageheader header) throws Exception;
+    public String getPO_DEBITCARDTOP24DUENUMNO(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,List<CardDetailVo> DcardDetailList,RePlmessageheader header) throws Exception;
     
     /**
      * 最近24个月内单张贷记卡产品的累计逾期期数（不考虑呆账）
@@ -332,7 +333,7 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getPO_DEBITCARDSUM24DUENUMNO(List<CardDetailVo> DcardDetailList, RePlmessageheader header) throws Exception;
+    public String getPO_DEBITCARDSUM24DUENUMNO(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,List<CardDetailVo> DcardDetailList,RePlmessageheader header) throws Exception;
     
     /**
      * 担保贷款五级分类
@@ -356,6 +357,6 @@ public interface Pbocmanager {
      * @return
      * @throws Exception
      */
-    public String getPO_CREDITCARDCURDUED(List<CardDetailVo> DcardDetailList) throws Exception;
+    public String getPO_CREDITCARDCURDUED(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,List<CardDetailVo> DcardDetailList) throws Exception;
     
 }

@@ -43,6 +43,7 @@ import com.caafc.pbocAnalysis.util.DateUtil;
 import com.caafc.pbocAnalysis.vo.CardDetailVo;
 import com.caafc.pbocAnalysis.vo.LoanDetailVo;
 import com.caafc.pbocAnalysis.vo.PlguaranteeinfoVo;
+import com.caafc.pbocAnalysis.vo.RePlloanVo;
 import com.caafc.pbocAnalysis.vo.RePlloancardVo;
 
 /**
@@ -60,9 +61,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @param reportNo
 	 * @throws Exception
 	 */
-	public String getCCardAvgLimitRate6M(List<RePlloancardVo> cardList) throws Exception {
+	public String getCCardAvgLimitRate6M(List<RePlloancardVo> cardList,List<RePlloanVo> loanList) throws Exception {
 		String cCardAvgLimitRate6M = "";
 		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(cardList) && CollectionUtils.isEmpty(loanList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
+		
+		//无信用卡明细信息
 		if(CollectionUtils.isEmpty(cardList)){
 			return Constant.SPECIAL_VAL_NONE_96;
 		}
@@ -191,7 +198,7 @@ public class PbocmanagerImpl implements Pbocmanager {
 			throws Exception {
 		String creditLoanMaxOverdue = "";
 
-		// 没有贷款、贷记卡信息
+		// 无信贷产品明细信息
 		if (CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_98;
 		}
@@ -231,7 +238,7 @@ public class PbocmanagerImpl implements Pbocmanager {
 	public String getCreditLoanMaxZL(List<LoanDetailVo> loanDetailList, List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception {
 		String creditLoanMaxZL = "";
 
-		// 没有信息
+		// 无信贷产品明细信息
 		if (CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_98;
 		}
@@ -323,7 +330,7 @@ public class PbocmanagerImpl implements Pbocmanager {
 	private String getCreditLoanOverdueNum(List<LoanDetailVo> loanDetailList, List<CardDetailVo> cardDetailList, RePlmessageheader header, int stepVal) throws Exception {
 		String creditLoanOverdueNum = "";
 
-		// 没有贷款、信用卡信息
+		// 无信贷产品明细信息
 		if (CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_98;
 		}
@@ -473,10 +480,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getLoanOverdueNum(List<LoanDetailVo> loanDetailList) throws Exception {
+	public String getLoanOverdueNum(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList) throws Exception {
 		String loanOverdueNum = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 没有相关信息
+		//无贷款明细信息
 		if (CollectionUtils.isEmpty(loanDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_97;
 		}
@@ -512,9 +524,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getLoanStatus(List<LoanDetailVo> loanDetailList) throws Exception {
+	public String getLoanStatus(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList) throws Exception {
 		String loanStatus = "";
-		// 没有相关信息
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
+		
+		//无贷款明细信息
 		if (CollectionUtils.isEmpty(loanDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_97;
 		}
@@ -563,9 +581,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getCCardOverdueNum(List<CardDetailVo> cardDetailList) throws Exception {
+	public String getCCardOverdueNum(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList) throws Exception {
 		String dCardOverdueNum = "";
-		// 获取信用卡
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
+		
+		//无信用卡明细信息
 		if (CollectionUtils.isEmpty(cardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_96;
 		}
@@ -603,9 +627,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getCCardStatus(List<CardDetailVo> cardDetailList) throws Exception {
+	public String getCCardStatus(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList) throws Exception {
 		String cCardStatus = "";
-		// 获取信用卡
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
+		
+		//无信用卡明细信息
 		if (CollectionUtils.isEmpty(cardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_96;
 		}
@@ -666,10 +696,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getLoanMaxOverdue24M(List<LoanDetailVo> loanDetailList, RePlmessageheader header) throws Exception {
+	public String getLoanMaxOverdue24M(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,RePlmessageheader header) throws Exception {
 		String loanMaxOverdue24M = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 没有贷款信息
+		//无贷款明细信息
 		if (CollectionUtils.isEmpty(loanDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_97;
 		}
@@ -700,10 +735,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getLoanSumOverdue24M(List<LoanDetailVo> loanDetailList, RePlmessageheader header) throws Exception {
+	public String getLoanSumOverdue24M(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception {
 		String loanSumOverdue24M = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 没有贷款信息
+		//无贷款明细信息
 		if (CollectionUtils.isEmpty(loanDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_97;
 		}
@@ -734,10 +774,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getCCardMaxOverdue24M(List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception {
+	public String getCCardMaxOverdue24M(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception {
 		String cCardMaxOverdue24M = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 贷记卡信息
+		//无信用卡明细信息
 		if (CollectionUtils.isEmpty(cardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_96;
 		}
@@ -767,10 +812,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getCCardSumOverdue24M(List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception {
+	public String getCCardSumOverdue24M(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception {
 		String creditLoanOverdueNum = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 贷记卡信息
+		//无信用卡明细信息
 		if (CollectionUtils.isEmpty(cardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_96;
 		}
@@ -801,10 +851,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getCCardOut80Rate(List<CardDetailVo> cardDetailList) throws Exception {
+	public String getCCardOut80Rate(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList) throws Exception {
 		String cCardOut80Rate = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 没有相关信息
+		//无信用卡明细信息
 		if (CollectionUtils.isEmpty(cardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_96;
 		}
@@ -882,9 +937,18 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getAssetDisposals(JSONObject pbocReport) throws Exception {
+	public String getAssetDisposals(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,JSONObject pbocReport) throws Exception {
 		String assetDisposals = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
+		
+		//获取获取资产信息汇总
 		RePlassetdispositionsum ad = AnalysisJsonUtil.getRePlassetdispositionsum(pbocReport);
+		
+		//无“授信概要明细”模块
 		if (null == ad) {
 			return Constant.SPECIAL_VAL_NONE_94;
 		}
@@ -939,12 +1003,23 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getSemiCreditCard(JSONObject pbocReport) throws Exception {
+	public String getSemiCreditCard(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,JSONObject pbocReport) throws Exception {
 		String semiCreditCard = "";
-		//获取准贷记卡信息
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
+		
+		//无信用卡明细信息
+		if(CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_96;
+		}
+		
+		//无准贷记卡明细信息
 		List<RePlloancardVo> list = AnalysisJsonUtil.getRePlstandardloancard(pbocReport);
 		if(CollectionUtils.isEmpty(list)){
-			return Constant.SPECIAL_VAL_NONE_98;
+			return Constant.SPECIAL_VAL_NONE_95;
 		}
 		
 		// 初始化最终结果值
@@ -983,10 +1058,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getLoanHisOverdueRate(List<LoanDetailVo> loanDetailList, RePlmessageheader header) throws Exception {
+	public String getLoanHisOverdueRate(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception {
 		String loanHisOverdueRate = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 没有贷款信息
+		//无贷款明细信息
 		if (CollectionUtils.isEmpty(loanDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_97;
 		}
@@ -1048,10 +1128,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getOneCcardHisOverdueRate(List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception {
+	public String getOneCcardHisOverdueRate(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception {
 		String oneCcardHisOverdueRate = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 没有贷记卡信息
+		//无贷记卡明细信息
 		if (CollectionUtils.isEmpty(cardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_96;
 		}
@@ -1115,10 +1200,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getManyCcardHisOverdueRate(List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception {
+	public String getManyCcardHisOverdueRate(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception {
 		String manyCcardHisOverdueRate = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(loanDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 没有贷记卡信息
+		//无信用卡明细信息
 		if (CollectionUtils.isEmpty(cardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_96;
 		}
@@ -1189,12 +1279,19 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getLoanMonthLiabilities(List<LoanDetailVo> loanDetailList) throws Exception {
+	public String getLoanMonthLiabilities(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList) throws Exception {
 		String loanMonthLiabilities = "";
-		// 没有贷款信息
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
+		
+		//无贷款明细信息
 		if (CollectionUtils.isEmpty(loanDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_97;
 		}
+		
 		//初始化最终结果值
 		BigDecimal sumVal = BigDecimal.ZERO;
 		
@@ -1257,10 +1354,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getRESERVED_1(List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception {
+	public String getRESERVED_1(List<CardDetailVo> cardDetailList,List<LoanDetailVo> loanDetailList, RePlmessageheader header) throws Exception {
 		String creditLoanMaxZL = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(cardDetailList) && CollectionUtils.isEmpty(loanDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 没有信息
+		// 无信用卡明细信息
 		if (CollectionUtils.isEmpty(cardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_96;
 		}
@@ -1297,8 +1399,14 @@ public class PbocmanagerImpl implements Pbocmanager {
 	/**
 	 * 住房贷款笔数
 	 */
-	public String getRESERVED_2(List<LoanDetailVo> loanDetailList) throws Exception {
+	public String getRESERVED_2(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList) throws Exception {
 		String RESERVED_2 = "";
+		
+		//没有信贷产品明细信息
+		if(CollectionUtils.isEmpty(cardDetailList) && CollectionUtils.isEmpty(loanDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
+		
 		//没有贷款信息
 		if(CollectionUtils.isEmpty(loanDetailList)){
 			return Constant.SPECIAL_VAL_NONE_97;
@@ -1329,9 +1437,19 @@ public class PbocmanagerImpl implements Pbocmanager {
 	/**
 	 * 信用卡产品的最近6个月的平均额度使用率（授信概要）
 	 */
-	public String getRESERVED_3(JSONObject pbocReport) throws Exception {
+	public String getRESERVED_3(JSONObject pbocReport,List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList) throws Exception {
 		String RESERVED_3 = "";
-
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(cardDetailList) && CollectionUtils.isEmpty(loanDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
+		
+		//无信用卡明细信息
+		if(CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_96;
+		}
+		
 		// 查询准贷记卡：最近6个月平均透支余额、授信总额（人民币）
 		RePlundestorystandardloa zdjk = AnalysisJsonUtil.getRePlundestorystandardloa(pbocReport);
 		// 查询贷记卡：最近6个月平均使用额度、授信总额
@@ -1391,12 +1509,17 @@ public class PbocmanagerImpl implements Pbocmanager {
 	/**
 	 * 最近24个月内准贷记卡产品的最大逾期期数（不考虑呆账）
 	 */
-	public String getPO_SEMICREDITCARDNO(List<CardDetailVo> ZcardDetailList, RePlmessageheader header) throws Exception{
+	public String getPO_SEMICREDITCARDNO(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,List<CardDetailVo> ZcardDetailList, RePlmessageheader header) throws Exception{
 		String getPO_SEMICREDITCARDNO = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 准贷记卡信息
+		//无准贷记卡明细信息
 		if (CollectionUtils.isEmpty(ZcardDetailList)) {
-			return Constant.SPECIAL_VAL_NONE_92;
+			return Constant.SPECIAL_VAL_NONE_95;
 		}
 		// 初始化最终结果值
 		int maxVal = 0;
@@ -1420,10 +1543,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	/**
 	 * 最近24个月内贷款产品的最大逾期期数（不考虑呆账）
 	 */
-	public String getPO_LOANTOPDUENUM24NO(List<LoanDetailVo> loanDetailList, RePlmessageheader header){
+	public String getPO_LOANTOPDUENUM24NO(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception{
 		String PO_LOANTOPDUENUM24NO = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 没有贷款信息
+		//无贷款明细信息
 		if (CollectionUtils.isEmpty(loanDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_97;
 		}
@@ -1450,10 +1578,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	/**
 	 * 最近24个月内单个贷款产品的累计逾期期数（不考虑呆账）
 	 */
-	public String getPO_LOANSUMDUENUM24NO(List<LoanDetailVo> loanDetailList, RePlmessageheader header){
+	public String getPO_LOANSUMDUENUM24NO(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList, RePlmessageheader header) throws Exception{
 		String PO_LOANSUMDUENUM24NO = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 没有贷款信息
+		//无贷款明细信息
 		if (CollectionUtils.isEmpty(loanDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_97;
 		}
@@ -1480,10 +1613,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	/**
 	 * 最近24个月内单张贷记卡产品的最大逾期期数（不考虑呆账）
 	 */
-	public String getPO_DEBITCARDTOP24DUENUMNO(List<CardDetailVo> DcardDetailList,RePlmessageheader header) throws Exception{
+	public String getPO_DEBITCARDTOP24DUENUMNO(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,List<CardDetailVo> DcardDetailList,RePlmessageheader header) throws Exception{
 		String PO_DEBITCARDTOP24DUENUMNO = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 贷记卡信息
+		//无贷记卡明细信息
 		if (CollectionUtils.isEmpty(DcardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_95;
 		}
@@ -1509,13 +1647,19 @@ public class PbocmanagerImpl implements Pbocmanager {
 	/**
 	 * 最近24个月内单张贷记卡产品的累计逾期期数(不考虑呆账)
 	 */
-	public String getPO_DEBITCARDSUM24DUENUMNO(List<CardDetailVo> DcardDetailList,RePlmessageheader header){
+	public String getPO_DEBITCARDSUM24DUENUMNO(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,List<CardDetailVo> DcardDetailList,RePlmessageheader header) throws Exception{
 		String PO_DEBITCARDSUM24DUENUMNO = "";
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
 
-		// 贷记卡信息
+		//无贷记卡明细信息
 		if (CollectionUtils.isEmpty(DcardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_95;
 		}
+		
 		// 初始化最终汇总结果值
 		int totalCount = 0;
 		int wjhCardCount = 0;
@@ -1530,7 +1674,7 @@ public class PbocmanagerImpl implements Pbocmanager {
 			}
 		}
 
-		//未激活贷记卡的张数等于贷记卡的张数则返回特殊值
+		//若未激活贷记卡的张数等于贷记卡的张数则返回特殊值
 		if(DcardDetailList.size() == wjhCardCount){
 			return String.valueOf(-123465789);
 		}else{
@@ -1599,101 +1743,6 @@ public class PbocmanagerImpl implements Pbocmanager {
 		
 		PO_BADDEBTSNUM = String.valueOf(maxVal);
 		return PO_BADDEBTSNUM;
-		
-		
-//		String PO_BADDEBTSNUM = "";
-//		BigDecimal b = new BigDecimal(0);
-//		int maxVal = -1;
-//		int tempVal1 = -1;
-//		int tempVal2 = -1;
-//		int tempVal3 = -1;
-//		int tempStepVal2 = -1;
-//		int tempStepVal3 = -1;
-//		
-//		// 获取呆账信息汇总
-//		RePlfellbackdebtsum fb = AnalysisJsonUtil.getRePlfellbackdebtsum(pbocReport);
-//
-//		if (null == fb) {
-//			return Constant.SPECIAL_VAL_NONE_94;
-//		}
-//
-//		// 直接读取呆账信息汇总笔数
-//		Integer count = fb.getCount();
-//		BigDecimal balance = fb.getBalance();
-//		if(count>0 && balance.compareTo(b) == 1){
-//			tempVal1 = 1;
-//		}else if(count>0 && balance.compareTo(b) == 0){
-//			tempVal1 = 0;
-//		}else{
-//			tempVal1 = 2;
-//		}
-//		
-//		
-//		//获取贷款信息
-//		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
-//			return Constant.SPECIAL_VAL_NONE_98;
-//		}else{
-//			for(LoanDetailVo vo : loanDetailList){
-//				String state = "";
-//				RePlcurraccountinfo cc = vo.getAccount();
-//				BigDecimal dbalance = cc.getBalance();
-//				//获取贷款合同信息里面的状态
-//				if(null != vo.getContract()){
-//					state = vo.getState();
-//				}
-//				//如果合同信息状态为空，则去获取当前帐户信息里的状态
-//				if(StringUtils.isBlank(state)){
-//					state = cc.getState();
-//				}
-//				// 最终状态为空 ，赋值为未结清
-//				if(StringUtils.isBlank(state)){
-//					state = Constant.STATE_DEFAULT;
-//				}
-//				if(Constant.STATE_DAIZHANG.equals(state) && dbalance.compareTo(b) == 1){
-//					tempVal2 = 1;
-//				}else if(Constant.STATE_DAIZHANG.equals(state) && dbalance.compareTo(b) == 0){
-//					tempVal2 = 0;
-//				}else{
-//					tempVal2 = 2;
-//				}
-//				tempStepVal2 = (tempStepVal2 > tempVal2) ? tempStepVal2 : tempVal2;
-//			}
-//		}
-//		
-//		//获取信用卡信息
-//		if(CollectionUtils.isEmpty(cardDetailList) && CollectionUtils.isEmpty(loanDetailList)){
-//			return Constant.SPECIAL_VAL_NONE_98;
-//		}else{
-//			for(CardDetailVo vo : cardDetailList){
-//				String state = "";
-//				RePlawardcreditinfo ac = vo.getAwardInfo();
-//				BigDecimal cbalance = ac.getBalance();
-//				//获取信用卡授信信息里面的状态
-//				if(null != vo.getAwardInfo()){
-//					state = vo.getState();
-//				}
-//				//如果合同信息里面的状态为空，则去获取当前帐户信息里面的状态
-//				if(StringUtils.isBlank(state)){
-//					state = ac.getState();
-//				}
-//				//最终状态为空，赋值为未结清
-//				if(StringUtils.isBlank(state)){
-//					state = Constant.STATE_DEFAULT;
-//				}
-//				if(Constant.STATE_DAIZHANG.equals(state) && cbalance.compareTo(b) == 1){
-//					tempVal3 = 1;
-//				}else if(Constant.STATE_DAIZHANG.equals(state) && cbalance.compareTo(b) == 0){
-//					tempVal3 = 0;
-//				}else{
-//					tempVal3 = 2;
-//				}
-//				tempStepVal3 = (tempStepVal3 > tempVal3) ? tempStepVal3 : tempVal3;
-//			}
-//		}
-//		tempStepVal2 = (tempStepVal2 > tempVal1) ? tempStepVal2 : tempVal1;
-//		maxVal = (tempStepVal2 > tempStepVal3) ? tempStepVal2 : tempStepVal3;
-//		PO_BADDEBTSNUM = String.valueOf(maxVal);
-//		return PO_BADDEBTSNUM;
 	}
 	
 	/**
@@ -1702,7 +1751,7 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getPO_BADDEBTSNUMDZ(JSONObject pbocReport)throws Exception{
+	private String getPO_BADDEBTSNUMDZ(JSONObject pbocReport)throws Exception{
 		String PO_BADDEBTSNUMDZ = "";
 		BigDecimal b = new BigDecimal(0);
 		int maxVal = -3;
@@ -1711,7 +1760,7 @@ public class PbocmanagerImpl implements Pbocmanager {
 		RePlfellbackdebtsum fb = AnalysisJsonUtil.getRePlfellbackdebtsum(pbocReport);
 
 		if (null == fb) {
-			return Constant.SPECIAL_VAL_NONE_98;
+			return Constant.SPECIAL_VAL_NONE_94;
 		}
 
 		// 直接读取呆账信息汇总笔数
@@ -1735,7 +1784,7 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getPO_BADDEBTSNUMDK(List<LoanDetailVo> loanDetailList)throws Exception{
+	private String getPO_BADDEBTSNUMDK(List<LoanDetailVo> loanDetailList)throws Exception{
 		String PO_BADDEBTSNUMDK = "";
 		BigDecimal b = new BigDecimal(0);
 		int tempVal = -3;
@@ -1787,7 +1836,7 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @return
 	 * @throws Exception
 	 */
-	public String getPO_BADDEBTSNUMCC(List<CardDetailVo> cardDetailList)throws Exception{
+	private String getPO_BADDEBTSNUMCC(List<CardDetailVo> cardDetailList)throws Exception{
 		String PO_BADDEBTSNUMCC = "";
 		BigDecimal b = new BigDecimal(0);
 		int tempVal = -3;
@@ -1836,9 +1885,15 @@ public class PbocmanagerImpl implements Pbocmanager {
 	/**
 	 * 申请人（征信报告）信用卡当期逾期期数(贷记卡)
 	 */
-	public String getPO_CREDITCARDCURDUED(List<CardDetailVo> DcardDetailList) throws Exception{
+	public String getPO_CREDITCARDCURDUED(List<LoanDetailVo> loanDetailList,List<CardDetailVo> cardDetailList,List<CardDetailVo> DcardDetailList) throws Exception{
 		String PO_CREDITCARDCURDUED = "";
-		// 获取贷记卡
+		
+		//无信贷产品明细信息
+		if(CollectionUtils.isEmpty(loanDetailList) && CollectionUtils.isEmpty(cardDetailList)){
+			return Constant.SPECIAL_VAL_NONE_98;
+		}
+		
+		//无贷记卡明细信息
 		if (CollectionUtils.isEmpty(DcardDetailList)) {
 			return Constant.SPECIAL_VAL_NONE_95;
 		}
