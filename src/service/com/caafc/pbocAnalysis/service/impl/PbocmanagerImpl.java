@@ -402,8 +402,9 @@ public class PbocmanagerImpl implements Pbocmanager {
 	 * @param pbocReport
 	 * @param month
 	 * @return
+	 * @throws Exception 
 	 */
-	private String getCreditLoanQueryNum(List<RePlrecorddetail> recordList, RePlmessageheader header,  int month) {
+	private String getCreditLoanQueryNum(List<RePlrecorddetail> recordList, RePlmessageheader header,  int month) throws Exception {
 		String creditLoanQueryNum = "";
 		
 		if (CollectionUtils.isEmpty(recordList)) {
@@ -429,21 +430,20 @@ public class PbocmanagerImpl implements Pbocmanager {
 		String queryTime = getDate1(header.getQuerytime());
 		
 		//获取当前月份
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Calendar calendar = Calendar.getInstance();
-		String date = String.valueOf(dateFormat.format(calendar.getTime()));
-		String time = getDate2(date);
-		
+		String sysDate = String.valueOf(dateFormat.format(calendar.getTime()));
 
 		// 筛选查询日期与征信报告查询时间间隔月数小于等于month个月的记录
 		for (RePlrecorddetail rd : resultList) {
 			// 查询日期
 			String dataR = getDate1(rd.getQuerydate());
-			String dete = dataR.substring(0, 7);
+			
+			int day = getDate3(dataR, sysDate);
 			
 			int months = DateUtil.getMonths(dataR, queryTime)+1;
 			if (months <= month){
-				if(dete.equals(time) && rd.getQuerier().contains("长安汽车金融有限公司")){
+				if(day<30 && rd.getQuerier().contains("长安汽车金融有限公司")){
 					count += 0;
 				}else{
 					count++;
@@ -1934,11 +1934,35 @@ public class PbocmanagerImpl implements Pbocmanager {
 	}
 
 	/**
-	 * 时间处理：类似201410 转为yyyy-MM-dd
+	 * 时间处理：类似201410 转为yyyy-MM
 	 */
 	private String getDate2(String dateStr) {
 		return dateStr.substring(0, 4) + "-" + dateStr.substring(4, 6);
 	}
+	
+	/**
+	 * 时间处理：计算两个字符串格式日期(yyyy-MM-dd)间隔的天数
+	 * @param dateStr
+	 * @return
+	 */
+	private int getDate3(String firstDate,String secondDate) throws Exception{
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");  
+		
+        Calendar cal = Calendar.getInstance();   
+        
+        cal.setTime(sdf.parse(firstDate));    
+        
+        long time1 = cal.getTimeInMillis(); 
+        
+        cal.setTime(sdf.parse(secondDate)); 
+        
+        long time2 = cal.getTimeInMillis();  
+        
+        long between_days=(time2-time1)/(1000*3600*24);  
+        
+       return Integer.parseInt(String.valueOf(between_days)); 
+	}
+	
 	
 	/**
 	 * 映射后24个月的时间范围的开始日期

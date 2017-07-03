@@ -54,7 +54,7 @@ public class TestPbocService {
 		
 		
 //		pbocRequest.setPbocFilePath("/ZXJX/cfstest/20170321/Card14273219860214721XBy085638.a");
-		pbocRequest.setPbocFilePath("/ZXJX/cfstest/20170629/Card510781199412072690By081329488.a");
+		pbocRequest.setPbocFilePath("/ZXJX/cfstest/20170321/Card440681198310312616By093841482.a");
 //		pbocRequest.setPbocFilePath("/ZXJX/cfstest/20170321/Card45242419741107198XBy133218667.a");
 //		pbocRequest.setPbocFilePath("/ZXJX/cfstest/20170321/Card132626197010026028By104715995.a");
 //		pbocRequest.setPbocFilePath("/ZXJX/cfstest/20170321/Card220322197501071200By101621926.a");
